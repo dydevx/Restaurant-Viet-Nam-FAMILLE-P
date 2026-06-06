@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Restaurant Việt Nam FAMILLE P à Gien : cuisine vietnamienne, salon de thé, bubble tea, commande et panier en ligne."
+    />
+    <title>Restaurant Việt Nam FAMILLE P | Cuisine vietnamienne à Gien</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#181714",
+              wine: "#7c1f2b",
+              jade: "#0f6b5f",
+              gold: "#c99a4a",
+              cream: "#fbf7ef",
+              pearl: "#fffdf8",
+              graphite: "#2b2925",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Cormorant Garamond", "serif"],
+            },
+            boxShadow: {
+              glow: "0 24px 70px rgba(124, 31, 43, 0.22)",
+              soft: "0 20px 60px rgba(24, 23, 20, 0.10)",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.95), rgba(251, 247, 239, 0.98)),
+          repeating-linear-gradient(135deg, rgba(124, 31, 43, 0.035) 0 1px, transparent 1px 18px),
+          repeating-linear-gradient(45deg, rgba(15, 107, 95, 0.028) 0 1px, transparent 1px 22px);
+        color: #181714;
+      }
+
+      section {
+        scroll-margin-top: 92px;
+      }
+
+      .hero-scene {
+        background-image:
+          linear-gradient(90deg, rgba(12, 11, 9, 0.92), rgba(31, 13, 18, 0.72) 43%, rgba(12, 11, 9, 0.22)),
+          url("assets/hero-vietnam.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: cinematic 18s ease-in-out infinite alternate;
+        overflow: hidden;
+      }
+
+      .hero-scene::before,
+      .hero-scene::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .hero-scene::before {
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.08)),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 74px);
+        mix-blend-mode: soft-light;
+        animation: curtainDrift 12s ease-in-out infinite alternate;
+      }
+
+      .hero-scene::after {
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.2) 48%, rgba(0, 0, 0, 0.12)),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.14), transparent 28%, rgba(12, 11, 9, 0.82)),
+          linear-gradient(115deg, transparent 0 58%, rgba(201, 154, 74, 0.16) 59%, transparent 72%);
+        opacity: 0.95;
+      }
+
+      .hero-scene > div {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-copy {
+        position: relative;
+        max-width: 54rem;
+        padding: clamp(1.1rem, 2vw, 1.75rem);
+        color: #fffdf8;
+        background:
+          linear-gradient(90deg, rgba(10, 9, 8, 0.78), rgba(10, 9, 8, 0.54) 68%, rgba(10, 9, 8, 0.14)),
+          linear-gradient(135deg, rgba(201, 154, 74, 0.16), transparent 42%);
+        border-left: 3px solid rgba(201, 154, 74, 0.86);
+        border-radius: 8px;
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+        text-shadow: 0 3px 22px rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(5px);
+      }
+
+      .hero-copy h1 {
+        color: #fffdf8 !important;
+        text-shadow:
+          0 4px 28px rgba(0, 0, 0, 0.9),
+          0 0 1px rgba(255, 255, 255, 0.88);
+      }
+
+      .hero-kicker {
+        color: #f1cc82 !important;
+        background: rgba(0, 0, 0, 0.38) !important;
+        border-color: rgba(241, 204, 130, 0.55) !important;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+      }
+
+      .hero-lead {
+        color: rgba(255, 253, 248, 0.92) !important;
+      }
+
+      .hero-rating,
+      .hero-rating span {
+        color: #f1cc82 !important;
+      }
+
+      .hero-phone {
+        color: #181714 !important;
+        text-shadow: none;
+      }
+
+      .hero-stat-card {
+        color: #fffdf8;
+        background: rgba(8, 7, 6, 0.46) !important;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+      }
+
+      .hero-stat-card p {
+        color: rgba(255, 253, 248, 0.9) !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.62);
+      }
+
+      .hero-stat-card p:first-child {
+        color: #f1cc82 !important;
+      }
+
+      @keyframes cinematic {
+        from {
+          background-position: center 50%;
+        }
+        to {
+          background-position: center 56%;
+        }
+      }
+
+      @keyframes curtainDrift {
+        from {
+          transform: translateX(-2%);
+          opacity: 0.6;
+        }
+        to {
+          transform: translateX(2%);
+          opacity: 0.95;
+        }
+      }
+
+      .luxury-nav {
+        background:
+          linear-gradient(90deg, rgba(255, 253, 248, 0.94), rgba(246, 248, 245, 0.9)),
+          repeating-linear-gradient(90deg, rgba(201, 154, 74, 0.08) 0 1px, transparent 1px 54px);
+        backdrop-filter: blur(18px);
+      }
+
+      .gold-line {
+        background: linear-gradient(90deg, transparent, #c99a4a, transparent);
+        background-size: 200% 100%;
+        animation: goldSweep 2.6s ease-in-out infinite;
+      }
+
+      @keyframes goldSweep {
+        0% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: -100% 0;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 700ms ease, transform 700ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-left {
+        transform: translateX(-24px);
+      }
+
+      .reveal-right {
+        transform: translateX(24px);
+      }
+
+      .reveal-zoom {
+        transform: scale(0.96);
+      }
+
+      .reveal-left.is-visible,
+      .reveal-right.is-visible {
+        transform: translateX(0);
+      }
+
+      .reveal-zoom.is-visible {
+        transform: scale(1);
+      }
+
+      .deco-panel {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .deco-panel::before,
+      .deco-panel::after {
+        content: "";
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        border-color: rgba(201, 154, 74, 0.55);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .deco-panel::before {
+        left: 10px;
+        top: 10px;
+        border-left: 1px solid;
+        border-top: 1px solid;
+      }
+
+      .deco-panel::after {
+        right: 10px;
+        bottom: 10px;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+      }
+
+      .fine-card {
+        background:
+          linear-gradient(145deg, rgba(255, 253, 248, 0.98), rgba(246, 248, 245, 0.9)),
+          repeating-linear-gradient(135deg, rgba(201, 154, 74, 0.08) 0 1px, transparent 1px 18px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .fine-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, transparent 0 42%, rgba(255, 255, 255, 0.5) 48%, transparent 54%);
+        transform: translateX(-120%);
+        transition: transform 800ms ease;
+        pointer-events: none;
+      }
+
+      .fine-card:hover::after {
+        transform: translateX(120%);
+      }
+
+      .european-band {
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.97), rgba(246, 248, 245, 0.92)),
+          repeating-linear-gradient(90deg, rgba(24, 23, 20, 0.035) 0 1px, transparent 1px 28px),
+          repeating-linear-gradient(0deg, rgba(124, 31, 43, 0.025) 0 1px, transparent 1px 34px);
+      }
+
+      .menu-theatre {
+        background:
+          linear-gradient(135deg, rgba(124, 31, 43, 0.1), transparent 28%),
+          linear-gradient(315deg, rgba(15, 107, 95, 0.11), transparent 34%),
+          #fbf7ef;
+      }
+
+      .marquee-track {
+        animation: marquee 22s linear infinite;
+      }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .menu-card {
+        position: relative;
+        overflow: hidden;
+        animation: cardIn 520ms ease both;
+        transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+      }
+
+      @keyframes cardIn {
+        from {
+          opacity: 0;
+          transform: translateY(14px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .menu-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #7c1f2b, #c99a4a, #0f6b5f);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 320ms ease;
+      }
+
+      .menu-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 26px 70px rgba(24, 23, 20, 0.16);
+        border-color: rgba(124, 31, 43, 0.26);
+      }
+
+      .menu-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .menu-card img {
+        transition: transform 700ms ease, filter 700ms ease;
+      }
+
+      .menu-card:hover img {
+        transform: scale(1.07);
+        filter: saturate(1.12) contrast(1.05);
+      }
+
+      .category-btn.active {
+        background:
+          linear-gradient(135deg, #181714, #3e1f2b 48%, #7c1f2b),
+          #181714;
+        color: #fffdf8;
+        border-color: #181714;
+        box-shadow: 0 12px 28px rgba(124, 31, 43, 0.2);
+      }
+
+      .drawer-open {
+        transform: translateX(0);
+      }
+
+      .toast-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #introOverlay {
+        background:
+          linear-gradient(135deg, rgba(124, 31, 43, 0.18), transparent 34%),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 48px),
+          #181714;
+      }
+
+      #introOverlay::before,
+      #introOverlay::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent),
+          #181714;
+        transition: transform 900ms cubic-bezier(0.76, 0, 0.24, 1);
+      }
+
+      #introOverlay::before {
+        left: 0;
+        border-right: 1px solid rgba(201, 154, 74, 0.35);
+      }
+
+      #introOverlay::after {
+        right: 0;
+        border-left: 1px solid rgba(201, 154, 74, 0.35);
+      }
+
+      #introOverlay > div {
+        position: relative;
+        z-index: 2;
+      }
+
+      #introOverlay.curtain-open::before {
+        transform: translateX(-100%);
+      }
+
+      #introOverlay.curtain-open::after {
+        transform: translateX(100%);
+      }
+
+      .pulse-gold {
+        animation: pulseGold 2.4s ease-in-out infinite;
+      }
+
+      @keyframes pulseGold {
+        0%,
+        100% {
+          box-shadow: 0 0 0 rgba(201, 154, 74, 0);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(201, 154, 74, 0.16);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-sans antialiased">
+    <div id="introOverlay" class="fixed inset-0 z-[90] grid place-items-center bg-ink text-pearl transition duration-700">
+      <div class="px-6 text-center">
+        <div class="mx-auto mb-6 h-px w-48 gold-line"></div>
+        <p class="text-xs font-bold uppercase tracking-[0.28em] text-gold">Expérience cinq étoiles</p>
+        <h1 class="mt-3 font-display text-5xl font-bold">FAMILLE P</h1>
+        <div class="mt-5 flex justify-center gap-1 text-gold" aria-label="Cinq étoiles">
+          <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+          <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+        </div>
+        <div class="mx-auto mt-6 h-px w-48 gold-line"></div>
+      </div>
+    </div>
+
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 luxury-nav">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navigation principale">
+        <a href="#accueil" class="flex items-center gap-3" aria-label="Restaurant Việt Nam FAMILLE P">
+          <span class="grid h-11 w-11 place-items-center rounded-md bg-ink text-sm font-extrabold text-pearl shadow-soft">FP</span>
+          <span class="leading-tight">
+            <span class="block font-display text-2xl font-bold text-ink">FAMILLE P</span>
+            <span class="block text-[0.68rem] font-bold uppercase tracking-[0.2em] text-wine">Restaurant Việt Nam</span>
+          </span>
+        </a>
+
+        <div class="hidden items-center gap-7 md:flex">
+          <a class="text-sm font-bold text-ink/72 transition hover:text-wine" href="#carte">Carte</a>
+          <a class="text-sm font-bold text-ink/72 transition hover:text-wine" href="#horaires">Horaires</a>
+          <a class="text-sm font-bold text-ink/72 transition hover:text-wine" href="#contact">Contact</a>
+          <button
+            id="cartOpenDesktop"
+            class="relative inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-bold text-pearl transition hover:bg-wine"
+            type="button"
+          >
+            <i data-lucide="shopping-bag" class="h-4 w-4" aria-hidden="true"></i>
+            Panier
+            <span id="cartBadgeDesktop" class="hidden rounded-full bg-gold px-2 py-0.5 text-xs text-ink">0</span>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2 md:hidden">
+          <button
+            id="cartOpenMobile"
+            class="relative inline-grid h-11 w-11 place-items-center rounded-md bg-ink text-pearl"
+            type="button"
+            aria-label="Ouvrir le panier"
+          >
+            <i data-lucide="shopping-bag" class="h-5 w-5" aria-hidden="true"></i>
+            <span id="cartBadgeMobile" class="absolute -right-1 -top-1 hidden rounded-full bg-gold px-1.5 py-0.5 text-xs font-bold text-ink">0</span>
+          </button>
+          <button
+            id="menuToggle"
+            class="inline-grid h-11 w-11 place-items-center rounded-md border border-ink/10 bg-pearl text-ink"
+            type="button"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+            aria-label="Ouvrir le menu"
+          >
+            <i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-ink/10 bg-pearl px-4 py-4 md:hidden">
+        <div class="mx-auto grid max-w-7xl gap-2">
+          <a class="mobile-link rounded-md px-3 py-3 text-sm font-bold text-ink/80 hover:bg-cream" href="#carte">Carte</a>
+          <a class="mobile-link rounded-md px-3 py-3 text-sm font-bold text-ink/80 hover:bg-cream" href="#horaires">Horaires</a>
+          <a class="mobile-link rounded-md px-3 py-3 text-sm font-bold text-ink/80 hover:bg-cream" href="#contact">Contact</a>
+          <a class="mobile-link mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-wine px-4 py-3 text-sm font-bold text-white" href="tel:+33218493485">
+            <i data-lucide="phone" class="h-4 w-4" aria-hidden="true"></i>
+            Appeler le restaurant
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="accueil">
+      <section class="hero-scene relative flex min-h-[84svh] items-end pt-28 text-pearl">
+        <div class="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+          <div class="hero-copy reveal reveal-left">
+            <p class="hero-kicker mb-5 inline-flex items-center gap-2 rounded-md border border-white/18 bg-white/10 px-3 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-gold">
+              <i data-lucide="sparkles" class="h-4 w-4" aria-hidden="true"></i>
+              Table vietnamienne, esprit européen
+            </p>
+            <h1 class="font-display text-5xl font-bold leading-[0.96] sm:text-7xl lg:text-8xl">
+              Restaurant Việt Nam FAMILLE P
+            </h1>
+            <p class="hero-lead mt-6 max-w-2xl text-lg leading-8 text-white/84 sm:text-xl">
+              Une expérience raffinée à Gien : cuisine vietnamienne traditionnelle, salon de thé, bubble tea maison et commande préparée avec soin.
+            </p>
+            <div class="hero-rating mt-7 flex items-center gap-1 text-gold" aria-label="Expérience cinq étoiles">
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <span class="ml-3 text-sm font-bold uppercase tracking-[0.18em] text-white/76">Service élégant</span>
+            </div>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#carte"
+                class="pulse-gold inline-flex items-center justify-center gap-2 rounded-md bg-wine px-6 py-3 text-sm font-extrabold text-white shadow-glow transition hover:bg-[#651821] focus:outline-none focus:ring-2 focus:ring-white"
+              >
+                Commander maintenant
+                <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i>
+              </a>
+              <a
+                href="tel:+33218493485"
+                class="hero-phone inline-flex items-center justify-center gap-2 rounded-md bg-pearl px-6 py-3 text-sm font-extrabold text-ink transition hover:bg-cream focus:outline-none focus:ring-2 focus:ring-white"
+              >
+                <i data-lucide="phone" class="h-4 w-4" aria-hidden="true"></i>
+                02 18 49 34 85
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal reveal-zoom mt-12 grid gap-3 sm:grid-cols-3">
+            <div class="hero-stat-card deco-panel border border-white/14 bg-white/10 p-5 backdrop-blur-md">
+              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Adresse</p>
+              <p class="mt-2 font-bold leading-6 text-white/88">15 avenue Maréchal Leclerc, 45500 Gien</p>
+            </div>
+            <div class="hero-stat-card deco-panel border border-white/14 bg-white/10 p-5 backdrop-blur-md">
+              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Salon de thé</p>
+              <p class="mt-2 font-bold leading-6 text-white/88">Bubble tea maison tous les jours de 14h00 à 20h00</p>
+            </div>
+            <div class="hero-stat-card deco-panel border border-white/14 bg-white/10 p-5 backdrop-blur-md">
+              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Commande</p>
+              <p class="mt-2 font-bold leading-6 text-white/88">À emporter, sur place ou livraison via Uber Eats</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="european-band py-14 sm:py-18">
+        <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
+          <article class="fine-card deco-panel reveal reveal-left rounded-lg border border-ink/10 p-7 shadow-soft">
+            <i data-lucide="chef-hat" class="h-7 w-7 text-wine" aria-hidden="true"></i>
+            <h2 class="mt-4 text-xl font-extrabold text-ink">Cuisine vietnamienne</h2>
+            <p class="mt-3 leading-7 text-ink/68">Des recettes parfumées, généreuses et servies dans une ambiance chaleureuse.</p>
+          </article>
+          <article class="fine-card deco-panel reveal reveal-zoom rounded-lg border border-ink/10 p-7 shadow-soft">
+            <i data-lucide="cup-soda" class="h-7 w-7 text-jade" aria-hidden="true"></i>
+            <h2 class="mt-4 text-xl font-extrabold text-ink">Salon de thé</h2>
+            <p class="mt-3 leading-7 text-ink/68">Bubble tea, thés fruités, boissons maison et pauses gourmandes l’après-midi.</p>
+          </article>
+          <article class="fine-card deco-panel reveal reveal-right rounded-lg border border-ink/10 p-7 shadow-soft">
+            <i data-lucide="shopping-bag" class="h-7 w-7 text-gold" aria-hidden="true"></i>
+            <h2 class="mt-4 text-xl font-extrabold text-ink">Commande rapide</h2>
+            <p class="mt-3 leading-7 text-ink/68">Une sélection préparée avec soin pour le service sur place, à emporter ou via Uber Eats.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="overflow-hidden border-y border-ink/10 bg-ink py-4 text-pearl">
+        <div class="marquee-track flex w-max items-center gap-8 whitespace-nowrap text-sm font-extrabold uppercase tracking-[0.22em] text-gold">
+          <span>Maison familiale</span><span class="text-white/35">•</span>
+          <span>Cuisine vietnamienne</span><span class="text-white/35">•</span>
+          <span>Salon de thé</span><span class="text-white/35">•</span>
+          <span>Bubble tea maison</span><span class="text-white/35">•</span>
+          <span>Service élégant</span><span class="text-white/35">•</span>
+          <span>À emporter</span><span class="text-white/35">•</span>
+          <span>Maison familiale</span><span class="text-white/35">•</span>
+          <span>Cuisine vietnamienne</span><span class="text-white/35">•</span>
+          <span>Salon de thé</span><span class="text-white/35">•</span>
+          <span>Bubble tea maison</span><span class="text-white/35">•</span>
+          <span>Service élégant</span><span class="text-white/35">•</span>
+          <span>À emporter</span>
+        </div>
+      </section>
+
+      <section id="carte" class="menu-theatre py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal reveal-left flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div class="max-w-3xl">
+              <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-wine">Carte & commande</p>
+              <h2 class="mt-3 font-display text-5xl font-bold leading-tight text-ink sm:text-6xl">Choisissez vos plats</h2>
+              <p class="mt-4 text-lg leading-8 text-ink/70">
+                Menu transcrit depuis la carte du restaurant. Les prix affichés servent à préparer votre demande de commande.
+              </p>
+            </div>
+            <div class="deco-panel fine-card rounded-lg border border-ink/10 p-5 shadow-soft">
+              <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-ink/50">Total panier</p>
+              <p id="inlineTotal" class="mt-1 text-3xl font-extrabold text-wine">0,00 €</p>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-4 lg:grid-cols-[1fr_360px]">
+            <div>
+              <div class="deco-panel fine-card reveal reveal-zoom rounded-lg border border-ink/10 p-3 shadow-soft">
+                <div id="categoryTabs" class="flex gap-2 overflow-x-auto pb-1"></div>
+              </div>
+
+              <div class="reveal reveal-right mt-5 grid gap-4 md:grid-cols-[1fr_auto]">
+                <label class="relative block">
+                  <span class="sr-only">Rechercher un plat</span>
+                  <i data-lucide="search" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-ink/40" aria-hidden="true"></i>
+                  <input
+                    id="menuSearch"
+                    class="h-12 w-full rounded-md border border-ink/10 bg-pearl pl-12 pr-4 text-sm font-semibold outline-none transition focus:border-wine focus:ring-4 focus:ring-wine/10"
+                    type="search"
+                    placeholder="Rechercher un plat, une boisson, un dessert..."
+                  />
+                </label>
+                <button id="clearSearch" class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-ink/10 bg-pearl px-4 text-sm font-bold text-ink transition hover:border-wine hover:text-wine" type="button">
+                  <i data-lucide="rotate-ccw" class="h-4 w-4" aria-hidden="true"></i>
+                  Réinitialiser
+                </button>
+              </div>
+
+              <div id="menuGrid" class="mt-6 grid gap-4 sm:grid-cols-2"></div>
+            </div>
+
+            <aside class="hidden lg:block">
+              <div class="deco-panel sticky top-24 rounded-lg border border-ink/10 bg-pearl p-5 shadow-soft">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wine">Votre commande</p>
+                    <h3 class="mt-1 text-2xl font-extrabold text-ink">Panier</h3>
+                  </div>
+                  <i data-lucide="shopping-basket" class="h-7 w-7 text-gold" aria-hidden="true"></i>
+                </div>
+                <div id="cartItemsDesktop" class="mt-5 max-h-[360px] space-y-3 overflow-auto pr-1"></div>
+                <div class="mt-5 border-t border-ink/10 pt-5">
+                  <div class="flex items-center justify-between text-sm font-bold text-ink/65">
+                    <span>Sous-total</span>
+                    <span id="subtotalDesktop">0,00 €</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between text-xl font-extrabold text-ink">
+                    <span>Total</span>
+                    <span id="totalDesktop">0,00 €</span>
+                  </div>
+                  <button id="checkoutDesktop" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="button">
+                    <i data-lucide="credit-card" class="h-4 w-4" aria-hidden="true"></i>
+                    Passer au paiement
+                  </button>
+                  <p class="mt-3 text-xs leading-5 text-ink/55">Paiement à confirmer au restaurant. Aucun paiement réel n’est débité sur cette page.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="european-band py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal reveal-left max-w-3xl">
+            <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-jade">Ambiance</p>
+            <h2 class="mt-3 font-display text-5xl font-bold text-ink sm:text-6xl">Une table élégante, une cuisine vivante</h2>
+          </div>
+          <div class="mt-9 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+            <figure class="deco-panel reveal reveal-left relative min-h-[520px] overflow-hidden rounded-lg border border-ink/10 shadow-soft">
+              <img src="assets/gallery-banh-xeo.jpeg" alt="Crêpe vietnamienne bánh xèo" class="h-full min-h-[520px] w-full object-cover" />
+              <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/86 to-transparent p-7 text-pearl">
+                <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Signature</p>
+                <h3 class="mt-2 font-display text-4xl font-bold">Bánh xèo croustillant</h3>
+              </figcaption>
+            </figure>
+
+            <div class="grid gap-5">
+              <figure class="deco-panel reveal reveal-right relative min-h-[250px] overflow-hidden rounded-lg border border-ink/10 shadow-soft">
+                <img src="assets/gallery-bo-luc-lac.jpeg" alt="Bœuf luc lac" class="h-full min-h-[250px] w-full object-cover" />
+                <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/82 to-transparent p-5 text-pearl">
+                  <p class="font-extrabold">Bœuf luc lac</p>
+                </figcaption>
+              </figure>
+              <div class="fine-card deco-panel reveal reveal-zoom rounded-lg border border-ink/10 p-7 shadow-soft">
+                <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-wine">Maison FAMILLE P</p>
+                <h3 class="mt-3 font-display text-4xl font-bold text-ink">Le raffinement sans froideur.</h3>
+                <p class="mt-4 leading-7 text-ink/68">Des assiettes parfumées, un accueil attentif et une atmosphère douce pour prolonger le plaisir du repas.</p>
+              </div>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <figure class="deco-panel reveal reveal-left relative overflow-hidden rounded-lg border border-ink/10 shadow-soft">
+                  <img src="assets/gallery-cafe.jpeg" alt="Café vietnamien glacé" class="h-56 w-full object-cover" />
+                  <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/82 to-transparent p-4 text-sm font-extrabold text-pearl">Café vietnamien</figcaption>
+                </figure>
+                <figure class="deco-panel reveal reveal-right relative overflow-hidden rounded-lg border border-ink/10 shadow-soft">
+                  <img src="assets/bubble-mangue.jpeg" alt="Bubble tea à la mangue" class="h-56 w-full object-cover" />
+                  <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/82 to-transparent p-4 text-sm font-extrabold text-pearl">Bubble tea mangue</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="horaires" class="bg-ink py-16 text-pearl sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="reveal max-w-2xl">
+            <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-gold">Horaires</p>
+            <h2 class="mt-3 font-display text-5xl font-bold sm:text-6xl">Planifier votre visite</h2>
+          </div>
+
+          <div class="mt-10 grid gap-5 lg:grid-cols-2">
+            <article class="deco-panel reveal reveal-left rounded-lg border border-white/10 bg-white/6 p-6 backdrop-blur-sm sm:p-8">
+              <div class="flex items-center gap-3">
+                <span class="grid h-12 w-12 place-items-center rounded-md bg-wine text-white">
+                  <i data-lucide="calendar-days" class="h-6 w-6" aria-hidden="true"></i>
+                </span>
+                <div>
+                  <h3 class="text-2xl font-extrabold">Horaires du restaurant</h3>
+                  <p class="text-sm font-bold uppercase tracking-[0.16em] text-gold">Déjeuner & dîner</p>
+                </div>
+              </div>
+              <div class="mt-7 divide-y divide-white/10">
+                <div class="grid gap-2 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                  <span class="font-semibold text-white/72">Du lundi au jeudi</span>
+                  <span class="font-extrabold">12h00 - 14h00 | 18h30 - 21h30</span>
+                </div>
+                <div class="grid gap-2 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                  <span class="font-semibold text-white/72">Du vendredi au dimanche</span>
+                  <span class="font-extrabold">12h00 - 14h00 | 18h30 - 22h00</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="deco-panel reveal reveal-right rounded-lg border border-white/10 bg-white/6 p-6 backdrop-blur-sm sm:p-8">
+              <div class="flex items-center gap-3">
+                <span class="grid h-12 w-12 place-items-center rounded-md bg-jade text-white">
+                  <i data-lucide="cup-soda" class="h-6 w-6" aria-hidden="true"></i>
+                </span>
+                <div>
+                  <h3 class="text-2xl font-extrabold">Horaires du salon de thé</h3>
+                  <p class="text-sm font-bold uppercase tracking-[0.16em] text-gold">Bubble tea</p>
+                </div>
+              </div>
+              <div class="mt-7 divide-y divide-white/10">
+                <div class="grid gap-2 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                  <span class="font-semibold text-white/72">Du lundi au dimanche</span>
+                  <span class="font-extrabold">14h00 - 20h00</span>
+                </div>
+                <p class="py-4 text-sm leading-6 text-white/66">Ces horaires peuvent varier selon la saison et les jours fériés.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="european-band py-16 sm:py-24">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
+          <div class="reveal">
+            <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-wine">Contact</p>
+            <h2 class="mt-3 font-display text-5xl font-bold text-ink sm:text-6xl">Nous trouver à Gien</h2>
+            <p class="mt-4 max-w-xl text-lg leading-8 text-ink/70">
+              Restaurant Việt Nam FAMILLE P vous accueille au 15 avenue Maréchal Leclerc, avec service sur place, à emporter et livraison via Uber Eats.
+            </p>
+
+            <div class="mt-8 grid gap-4">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=15%20avenue%20Mar%C3%A9chal%20Leclerc%2C%2045500%20Gien%2C%20France"
+                target="_blank"
+                rel="noreferrer"
+                class="fine-card group flex items-start gap-4 rounded-lg border border-ink/10 p-5 transition hover:border-wine"
+              >
+                <i data-lucide="map-pin" class="mt-1 h-5 w-5 flex-none text-wine" aria-hidden="true"></i>
+                <span>
+                  <span class="block text-sm font-extrabold uppercase tracking-[0.16em] text-ink/50">Adresse</span>
+                  <span class="mt-1 block font-bold text-ink group-hover:text-wine">15 avenue Maréchal Leclerc, 45500 Gien, France</span>
+                </span>
+              </a>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <a href="tel:+33218493485" class="fine-card flex items-center gap-3 rounded-lg border border-ink/10 p-5 font-extrabold transition hover:border-wine hover:text-wine">
+                  <i data-lucide="phone" class="h-5 w-5 text-wine" aria-hidden="true"></i>
+                  02 18 49 34 85
+                </a>
+                <a href="tel:+33786868682" class="fine-card flex items-center gap-3 rounded-lg border border-ink/10 p-5 font-extrabold transition hover:border-wine hover:text-wine">
+                  <i data-lucide="smartphone" class="h-5 w-5 text-wine" aria-hidden="true"></i>
+                  07 86 86 86 82
+                </a>
+                <a href="https://www.famillep.com" target="_blank" rel="noreferrer" class="fine-card flex items-center gap-3 rounded-lg border border-ink/10 p-5 font-bold transition hover:border-wine hover:text-wine">
+                  <i data-lucide="globe-2" class="h-5 w-5 text-wine" aria-hidden="true"></i>
+                  www.famillep.com
+                </a>
+                <div class="fine-card flex items-center gap-3 rounded-lg border border-ink/10 p-5 font-bold">
+                  <i data-lucide="instagram" class="h-5 w-5 text-wine" aria-hidden="true"></i>
+                  Instagram : famillepbubbletea
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal min-h-[420px] overflow-hidden rounded-lg border border-ink/10 bg-cream shadow-soft">
+            <iframe
+              title="Carte Google Maps de Restaurant Việt Nam FAMILLE P"
+              src="https://www.google.com/maps?q=15%20avenue%20Mar%C3%A9chal%20Leclerc%2C%2045500%20Gien%2C%20France&output=embed"
+              class="h-full min-h-[420px] w-full"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-ink/10 bg-pearl px-4 py-8 text-center sm:px-6 lg:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 text-sm font-semibold text-ink/60">
+        <p>© 2026 Tous droits réservés</p>
+        <p>Conception : Hoangcaster</p>
+      </div>
+    </footer>
+
+    <button id="floatingCart" class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-wine px-5 py-4 text-sm font-extrabold text-white shadow-glow transition hover:bg-[#651821] lg:hidden" type="button">
+      <i data-lucide="shopping-bag" class="h-5 w-5" aria-hidden="true"></i>
+      <span id="floatingCartText">Panier · 0,00 €</span>
+    </button>
+
+    <div id="cartOverlay" class="fixed inset-0 z-[60] hidden bg-black/55"></div>
+    <aside id="cartDrawer" class="fixed bottom-0 right-0 z-[70] flex h-[92svh] w-full max-w-md translate-x-full flex-col rounded-tl-lg bg-pearl shadow-2xl transition-transform duration-300 sm:top-0 sm:h-full sm:rounded-none">
+      <div class="flex items-center justify-between border-b border-ink/10 p-5">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wine">Votre commande</p>
+          <h2 class="text-2xl font-extrabold text-ink">Panier</h2>
+        </div>
+        <button id="cartClose" class="inline-grid h-10 w-10 place-items-center rounded-md border border-ink/10 text-ink transition hover:bg-cream" type="button" aria-label="Fermer le panier">
+          <i data-lucide="x" class="h-5 w-5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="cartItemsDrawer" class="flex-1 space-y-3 overflow-auto p-5"></div>
+      <div class="border-t border-ink/10 p-5">
+        <div class="flex items-center justify-between text-sm font-bold text-ink/65">
+          <span>Sous-total</span>
+          <span id="subtotalDrawer">0,00 €</span>
+        </div>
+        <div class="mt-2 flex items-center justify-between text-xl font-extrabold text-ink">
+          <span>Total</span>
+          <span id="totalDrawer">0,00 €</span>
+        </div>
+        <button id="checkoutDrawer" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="button">
+          <i data-lucide="credit-card" class="h-4 w-4" aria-hidden="true"></i>
+          Passer au paiement
+        </button>
+      </div>
+    </aside>
+
+    <div id="checkoutModal" class="fixed inset-0 z-[80] hidden overflow-y-auto bg-black/70 p-4">
+      <div class="mx-auto my-8 max-w-3xl rounded-lg bg-pearl shadow-2xl">
+        <div class="flex items-start justify-between gap-4 border-b border-ink/10 p-5">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wine">Paiement</p>
+            <h2 class="mt-1 text-2xl font-extrabold text-ink">Finaliser la commande</h2>
+          </div>
+          <button id="checkoutClose" class="inline-grid h-10 w-10 place-items-center rounded-md border border-ink/10 text-ink transition hover:bg-cream" type="button" aria-label="Fermer">
+            <i data-lucide="x" class="h-5 w-5" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <form id="checkoutForm" class="grid gap-6 p-5 lg:grid-cols-[1fr_0.85fr]">
+          <div class="space-y-4">
+            <label class="block">
+              <span class="text-sm font-bold text-ink">Nom</span>
+              <input class="mt-2 h-12 w-full rounded-md border border-ink/10 bg-white px-4 text-sm outline-none focus:border-wine focus:ring-4 focus:ring-wine/10" name="name" required placeholder="Votre nom" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-bold text-ink">Téléphone</span>
+              <input class="mt-2 h-12 w-full rounded-md border border-ink/10 bg-white px-4 text-sm outline-none focus:border-wine focus:ring-4 focus:ring-wine/10" name="phone" required placeholder="Votre numéro" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-bold text-ink">Mode de retrait</span>
+              <select class="mt-2 h-12 w-full rounded-md border border-ink/10 bg-white px-4 text-sm font-semibold outline-none focus:border-wine focus:ring-4 focus:ring-wine/10" name="mode">
+                <option>À emporter</option>
+                <option>Sur place</option>
+                <option>Livraison via Uber Eats</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-bold text-ink">Mode de paiement</span>
+              <select class="mt-2 h-12 w-full rounded-md border border-ink/10 bg-white px-4 text-sm font-semibold outline-none focus:border-wine focus:ring-4 focus:ring-wine/10" name="payment">
+                <option>Paiement au restaurant</option>
+                <option>Carte bancaire à la remise</option>
+                <option>Espèces</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-bold text-ink">Message</span>
+              <textarea class="mt-2 min-h-24 w-full rounded-md border border-ink/10 bg-white px-4 py-3 text-sm outline-none focus:border-wine focus:ring-4 focus:ring-wine/10" name="note" placeholder="Allergies, heure souhaitée, précision de préparation..."></textarea>
+            </label>
+          </div>
+
+          <div class="rounded-lg border border-ink/10 bg-cream p-5">
+            <h3 class="text-lg font-extrabold text-ink">Récapitulatif</h3>
+            <div id="checkoutSummary" class="mt-4 space-y-3 text-sm"></div>
+            <div class="mt-5 border-t border-ink/10 pt-5">
+              <div class="flex items-center justify-between text-xl font-extrabold text-ink">
+                <span>Total</span>
+                <span id="checkoutTotal">0,00 €</span>
+              </div>
+              <p class="mt-3 text-xs leading-5 text-ink/58">Cette page prépare la demande de commande. Le paiement réel est confirmé avec le restaurant.</p>
+              <button class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="submit">
+                <i data-lucide="badge-check" class="h-4 w-4" aria-hidden="true"></i>
+                Confirmer la commande
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-5 left-1/2 z-[95] -translate-x-1/2 translate-y-4 rounded-md bg-ink px-5 py-3 text-sm font-bold text-pearl opacity-0 shadow-2xl transition duration-300">
+      Plat ajouté au panier
+    </div>
+
+    <script>
+      const menuData = [
+        {
+          id: "menus",
+          label: "Menus",
+          icon: "badge-euro",
+          items: [
+            {
+              id: "menu-enfant",
+              name: "Menu enfant",
+              price: 8,
+              desc: "Entrée + plat + boisson. Riz cantonais ou 2 nems, puis 4 wings avec frites ou nouilles sautées.",
+              image: "assets/gallery-wings.jpeg",
+            },
+            {
+              id: "menu-midi",
+              name: "Menu midi",
+              price: 15,
+              desc: "Entrée + plat + dessert, uniquement le midi du lundi au vendredi.",
+              image: "assets/gallery-bo-bun.jpeg",
+            },
+          ],
+        },
+        {
+          id: "entrees",
+          label: "Entrées",
+          icon: "leaf",
+          items: [
+            { id: "ha-cao", name: "Raviolis vapeur crevette", price: 4.5, desc: "Ha cao, servis par 4 pièces.", image: "assets/gallery-rouleaux.jpeg" },
+            { id: "xiu-mai", name: "Bouchées vapeur crevette", price: 4.5, desc: "Xíu mại, servis par 4 pièces.", image: "assets/gallery-rouleaux.jpeg" },
+            { id: "rouleaux", name: "Rouleaux de printemps", price: 5.5, desc: "Galette de riz, vermicelles, porc, crevette, salade, soja et menthe.", image: "assets/gallery-rouleaux.jpeg" },
+            { id: "salade-vietnamienne", name: "Salade vietnamienne", price: 5, desc: "Salade, carotte, soja, pâté de porc, oignons frits, crevette ou poulet.", image: "assets/gallery-bo-bun.jpeg" },
+            { id: "nems-porc", name: "Nems porc", price: 5.5, desc: "Porc, oignons, vermicelles, champignons noirs et carottes. 4 pièces.", image: "assets/nems-crevettes.jpeg" },
+            { id: "nems-poulet", name: "Nems poulet", price: 5.5, desc: "Poulet, oignons, vermicelles et carottes. 4 pièces.", image: "assets/nems-crevettes.jpeg" },
+            { id: "nems-crevette", name: "Nems crevette", price: 5.5, desc: "Crevette, maïs, poireaux, surimi et enoki. 4 pièces.", image: "assets/nems-crevettes.jpeg" },
+            { id: "banh-cuon", name: "Bánh cuốn", price: 6, desc: "Crêpes vietnamiennes vapeur, porc, champignons noirs, soja, menthe.", image: "assets/gallery-banh-cuon.jpeg" },
+            { id: "banh-beo", name: "Bánh bèo", price: 6, desc: "Gâteau de riz avec crevettes, cacahuètes, ciboulette et oignons frits.", image: "assets/gallery-banh-cuon.jpeg" },
+            { id: "banh-xeo", name: "Bánh xèo", price: 6, desc: "Crêpe vietnamienne garnie de porc, crevette, calamar et soja.", image: "assets/gallery-banh-xeo.jpeg" },
+          ],
+        },
+        {
+          id: "plats",
+          label: "Plats",
+          icon: "utensils",
+          items: [
+            { id: "gambas", name: "Gambas poivre et sel", price: 17.5, desc: "Servies avec riz au basilic citronnelle.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "boeuf-luc-lac", name: "Bœuf luc lac", price: 15.5, desc: "Riz sauté à la tomate, bœuf, poivrons, oignons, concombre, tomate, œuf au plat.", image: "assets/gallery-bo-luc-lac.jpeg" },
+            { id: "bo-ne", name: "Bò né", price: 15.5, desc: "Émincé de bœuf, saucisse, œuf au plat, concombre, tomate, oignons, pain.", image: "assets/gallery-bo-luc-lac.jpeg" },
+            { id: "nouilles-poulet", name: "Nouilles sautées poulet", price: 11.5, desc: "Nouilles, poulet, oignons, pak choï, poivrons et soja.", image: "assets/gallery-banh-xeo.jpeg" },
+            { id: "wings", name: "Wings - 8 pièces", price: 11.5, desc: "Accompagnement au choix : riz blanc, riz cantonais ou nouilles sautées.", image: "assets/gallery-wings.jpeg" },
+            { id: "viande-caramel", name: "Viande au caramel", price: 11.5, desc: "Poulet ou porc au choix, avec riz blanc ou riz cantonais.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "pho", name: "Soupe tonkinoise - Phở", price: 12.5, desc: "Nouilles de riz plates, bœuf, boulettes de bœuf, tripes, soja, oignons, coriandre.", image: "assets/pho-boeuf.jpeg" },
+            { id: "bo-bun", name: "Bò bún", price: 12.5, desc: "Bœuf, poulet ou crevettes, vermicelles, salade, pickles, cacahuètes et nems.", image: "assets/gallery-bo-bun.jpeg" },
+            { id: "com-ga", name: "Riz au poulet - Cơm gà", price: 12.5, desc: "Riz au curcuma, pickles de carottes, concombre, oignons frits et poulet.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "nouilles-mer", name: "Nouilles sautées fruits de mer", price: 12.5, desc: "Nouilles, crevette, calamar, oignons, concombre, chou chinois, soja, carotte.", image: "assets/gallery-banh-xeo.jpeg" },
+            { id: "banh-hoi", name: "Bánh hỏi", price: 12.5, desc: "Vermicelles, crevette, poitrine de porc grillé, pâté citronnelle et pickles.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "bun-thit-nuong", name: "Viandes grillées - Bún Thịt Nướng", price: 12.5, desc: "Vermicelles, poitrine et pâté de porc grillé, pickles et oignons frits.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "porc-aigre-douce", name: "Porc aigre douce", price: 12.5, desc: "Servi avec riz blanc et concombre.", image: "assets/gallery-bun-cha.jpeg" },
+          ],
+        },
+        {
+          id: "vege",
+          label: "Végé",
+          icon: "sprout",
+          items: [
+            { id: "salade-vege", name: "Salade vietnamienne végétarienne", price: 4, desc: "Salade, soja, carotte, pâté végétarien et vinaigrette maison.", image: "assets/gallery-bo-bun.jpeg" },
+            { id: "rouleaux-vege", name: "Rouleaux de printemps végétariens", price: 5.5, desc: "Galette de riz, salade, vermicelles, tofu, soja et menthe.", image: "assets/gallery-rouleaux.jpeg" },
+            { id: "riz-cantonais-vege", name: "Riz cantonais végétarien", price: 8.5, desc: "Riz, petits pois, carottes et pâté végétarien.", image: "assets/gallery-bo-bun.jpeg" },
+            { id: "nems-vege", name: "Nems végétariens", price: 5.5, desc: "Tofu, taro, poireaux, vermicelles de riz et champignons noirs. 4 pièces.", image: "assets/nems-crevettes.jpeg" },
+            { id: "nouilles-vege", name: "Nouilles sautées végétariennes", price: 11.5, desc: "Nouilles, oignons, poivrons, pak choï, soja, tofu et pâté végétarien.", image: "assets/gallery-banh-xeo.jpeg" },
+            { id: "bo-bun-vege", name: "Bò bún végétarien", price: 12.5, desc: "Vermicelles, pâté végétarien, nems, soja, champignons, cacahuètes et menthe.", image: "assets/gallery-bo-bun.jpeg" },
+          ],
+        },
+        {
+          id: "banh-mi",
+          label: "Bánh mì",
+          icon: "sandwich",
+          items: [
+            { id: "banh-mi-special", name: "Bánh mì - Le spécial", price: 5.5, desc: "Porc, pâté de porc, mayonnaise, pickles, coriandre, concombre, sauce maison.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "banh-mi-poulet", name: "Bánh mì - Le poulet", price: 5.5, desc: "Poulet, pâté de poulet, mayonnaise, pickles, coriandre et sauce maison.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "banh-mi-boeuf", name: "Bánh mì - Bœuf citronnelle", price: 6.5, desc: "Bœuf mariné, pickles de carottes, concombre et coriandre.", image: "assets/gallery-bo-luc-lac.jpeg" },
+            { id: "baguette-sel-pimente", name: "Baguette grillée au sel pimenté", price: 6.5, desc: "Baguette grillée, sel pimenté, œuf, pâté de porc, oignon frit, ciboulette.", image: "assets/gallery-bun-cha.jpeg" },
+          ],
+        },
+        {
+          id: "desserts",
+          label: "Desserts",
+          icon: "cake-slice",
+          items: [
+            { id: "trois-couleurs", name: "Dessert 3 couleurs", price: 3.5, desc: "Perle de tapioca, feuille de pandan, lait de coco et haricot rouge.", image: "assets/dessert-che.jpeg" },
+            { id: "mango", name: "Dessert Mango", price: 3.5, desc: "Gelées, mangue et lait de coco.", image: "assets/dessert-che.jpeg" },
+            { id: "gateau-banane", name: "Gâteau de banane", price: 3.5, desc: "Servi avec sésame et lait de coco.", image: "assets/dessert-che.jpeg" },
+            { id: "gateau-manioc", name: "Gâteau de manioc", price: 3.5, desc: "Manioc et lait de coco.", image: "assets/dessert-che.jpeg" },
+            { id: "perles-coco", name: "Perles de coco", price: 3.5, desc: "Garnies d’haricot jaune ou coco au choix.", image: "assets/dessert-che.jpeg" },
+            { id: "boules-sesames", name: "Boules de sésames", price: 3.5, desc: "Gâteau frit garni d’haricot jaune. 15 minutes d’attente.", image: "assets/dessert-che.jpeg" },
+          ],
+        },
+        {
+          id: "boissons",
+          label: "Boissons",
+          icon: "coffee",
+          items: [
+            { id: "the-glace-maison", name: "Thé glacé maison", price: 4.5, desc: "Boisson maison fraîche.", image: "assets/gallery-the-maison.jpeg" },
+            { id: "cafe-glace-vietnamien", name: "Café glacé vietnamien", price: 4.5, desc: "Cà phê sữa đá, café vietnamien glacé au lait.", image: "assets/gallery-cafe.jpeg" },
+            { id: "cafe-phindi", name: "Café Phindi", price: 4.5, desc: "Spécialité café du salon de thé.", image: "assets/gallery-cafe.jpeg" },
+            { id: "coco-matcha", name: "Coco Matcha", price: 4.5, desc: "Matcha, coco et fraîcheur maison.", image: "assets/gallery-the-maison.jpeg" },
+            { id: "cafe-sale", name: "Café salé", price: 2.5, desc: "Café vietnamien, froid ou chaud au choix.", image: "assets/gallery-cafe.jpeg" },
+            { id: "mocktail-blue-sea", name: "Virgin Mojito Blue Sea", price: 5, desc: "Mocktail frais et coloré.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "mocktail-passion", name: "Mocktail orange fruit de la passion", price: 5, desc: "Boisson froide maison.", image: "assets/gallery-mojito.jpeg" },
+            { id: "mocktail-peche-fraise", name: "Mocktail pêche fraise", price: 5, desc: "Boisson froide maison.", image: "assets/gallery-mojito.jpeg" },
+            { id: "the-chrysantheme", name: "Thé chrysanthème et longane", price: 3.5, desc: "Boisson chaude maison.", image: "assets/gallery-the-maison.jpeg" },
+            { id: "the-hibiscus", name: "Thé hibiscus et rose", price: 3.5, desc: "Boisson chaude parfumée.", image: "assets/gallery-the-maison.jpeg" },
+            { id: "soft", name: "Soft 33 cl", price: 3, desc: "Coca-Cola, Orangina, Oasis ou jus de coco.", image: "assets/gallery-blue-sea.jpeg" },
+          ],
+        },
+        {
+          id: "bubble-tea",
+          label: "Bubble tea",
+          icon: "cup-soda",
+          items: [
+            { id: "the-fruite", name: "Thé fruité", price: 6, desc: "Fraise hibiscus, melon kiwi, mangue ananas, myrtille litchi, mangue macchiato ou dragon macchiato.", image: "assets/gallery-lait-the-taro.jpeg" },
+            { id: "the-latte", name: "Thé latté", price: 4.5, desc: "Original, melon, matcha, mangue, fraise, taro ou sakula.", image: "assets/bubble-mangue.jpeg" },
+            { id: "boba-fraise", name: "Boba fruité", price: 0.5, desc: "Supplément topping : fraise, kiwi, mangue, ananas, myrtille ou litchi.", image: "assets/gallery-lait-the-taro.jpeg" },
+            { id: "topping", name: "Topping bubble tea", price: 0.5, desc: "Perle de 3Q, tapioca noir ou gelée de nata.", image: "assets/bubble-mangue.jpeg" },
+          ],
+        },
+        {
+          id: "sushis",
+          label: "Sushis",
+          icon: "fish",
+          items: [
+            { id: "sushis", name: "Sushis - 4 pièces", price: 7.5, desc: "Saumon ou crevette.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "sandwich-sushi", name: "Sandwich sushi - 4 pièces", price: 10, desc: "Saumon ou thon cuit.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "makis", name: "Makis - 4 pièces", price: 3.5, desc: "Saumon, thon cuit ou saumon cheese.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "california", name: "California rolls - 4 pièces", price: 4.5, desc: "Saumon cheese, saumon avocat, poulet crispy ou thon cuit avocat.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "poke-bowl", name: "Poke bowl", price: 15.5, desc: "Saumon ou poulet crunchy.", image: "assets/gallery-blue-sea.jpeg" },
+          ],
+        },
+      ];
+
+      const itemImages = {
+        "menu-enfant": "assets/gallery-wings.jpeg",
+        "menu-midi": "assets/gallery-bo-bun.jpeg",
+        "ha-cao": "assets/dish-ha-cao.jpeg",
+        "xiu-mai": "assets/dish-xiu-mai.jpeg",
+        "rouleaux": "assets/gallery-rouleaux.jpeg",
+        "salade-vietnamienne": "assets/dish-salade-vietnamienne.jpeg",
+        "nems-porc": "assets/dish-nems.jpeg",
+        "nems-poulet": "assets/dish-nems-poulet-variant.jpeg",
+        "nems-crevette": "assets/nems-crevettes.jpeg",
+        "banh-cuon": "assets/gallery-banh-cuon.jpeg",
+        "banh-beo": "assets/dish-banh-beo-variant.jpeg",
+        "banh-xeo": "assets/gallery-banh-xeo.jpeg",
+        "gambas": "assets/dish-gambas-sel.jpeg",
+        "boeuf-luc-lac": "assets/gallery-bo-luc-lac.jpeg",
+        "bo-ne": "assets/dish-bo-ne.jpeg",
+        "nouilles-poulet": "assets/dish-nouilles-poulet.jpeg",
+        "wings": "assets/gallery-wings.jpeg",
+        "viande-caramel": "assets/dish-porc-caramel.jpeg",
+        "pho": "assets/pho-boeuf.jpeg",
+        "bo-bun": "assets/gallery-bo-bun.jpeg",
+        "com-ga": "assets/dish-com-ga.jpeg",
+        "nouilles-mer": "assets/dish-nouilles-mer.jpeg",
+        "banh-hoi": "assets/dish-banh-hoi.jpeg",
+        "bun-thit-nuong": "assets/gallery-bun-cha.jpeg",
+        "porc-aigre-douce": "assets/dish-riz-poulet.jpeg",
+        "salade-vege": "assets/dish-salade-vietnamienne.jpeg",
+        "rouleaux-vege": "assets/gallery-rouleaux.jpeg",
+        "riz-cantonais-vege": "assets/dish-riz-poulet.jpeg",
+        "nems-vege": "assets/nems-crevettes.jpeg",
+        "nouilles-vege": "assets/dish-nouilles-poulet.jpeg",
+        "bo-bun-vege": "assets/gallery-bo-bun.jpeg",
+        "banh-mi-special": "assets/dish-baguette-salee.jpeg",
+        "banh-mi-poulet": "assets/dish-banh-mi.jpeg",
+        "banh-mi-boeuf": "assets/gallery-bo-luc-lac.jpeg",
+        "baguette-sel-pimente": "assets/dish-baguette-pimente-variant.jpeg",
+        "trois-couleurs": "assets/dessert-che.jpeg",
+        "mango": "assets/dessert-mango-che.jpeg",
+        "gateau-banane": "assets/dessert-gateau-banane.jpeg",
+        "gateau-manioc": "assets/dessert-gateau-manioc.jpeg",
+        "perles-coco": "assets/dessert-perles-coco.jpeg",
+        "boules-sesames": "assets/dessert-banh-cam.jpeg",
+        "the-glace-maison": "assets/drink-the-maison.jpeg",
+        "cafe-glace-vietnamien": "assets/gallery-cafe.jpeg",
+        "cafe-phindi": "assets/drink-cafe-phindi.jpeg",
+        "coco-matcha": "assets/drink-coco-matcha.jpeg",
+        "cafe-sale": "assets/drink-cafe-sale-variant.jpeg",
+        "mocktail-blue-sea": "assets/drink-blue-sea.jpeg",
+        "mocktail-passion": "assets/drink-mocktail-passion.jpeg",
+        "mocktail-peche-fraise": "assets/drink-mojito.jpeg",
+        "the-chrysantheme": "assets/drink-the-chaud.jpeg",
+        "the-hibiscus": "assets/drink-the-fruit-fraise.jpeg",
+        "soft": "assets/gallery-blue-sea.jpeg",
+        "the-fruite": "assets/drink-the-fruit-fraise.jpeg",
+        "the-latte": "assets/bubble-mangue-perles.jpeg",
+        "boba-fraise": "assets/bubble-lait-fraise.jpeg",
+        "topping": "assets/bubble-taro-perles.jpeg",
+        "sushis": "assets/sushi-sushis.jpeg",
+        "sandwich-sushi": "assets/sushi-sandwich.jpeg",
+        "makis": "assets/sushi-makis.jpeg",
+        "california": "assets/sushi-california.jpeg",
+        "poke-bowl": "assets/sushi-poke.jpeg",
+      };
+
+      const state = {
+        category: "menus",
+        search: "",
+        cart: [],
+      };
+
+      const formatPrice = (value) =>
+        new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(value);
+
+      const enrichItem = (item) => ({
+        ...item,
+        image: itemImages[item.id] || item.image,
+      });
+
+      const allItems = () =>
+        menuData.flatMap((category) =>
+          category.items.map((item) => ({
+            ...enrichItem(item),
+            category: category.label,
+          }))
+        );
+
+      const findItem = (id) => allItems().find((item) => item.id === id);
+
+      const menuToggle = document.querySelector("#menuToggle");
+      const mobileMenu = document.querySelector("#mobileMenu");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+      const categoryTabs = document.querySelector("#categoryTabs");
+      const menuGrid = document.querySelector("#menuGrid");
+      const menuSearch = document.querySelector("#menuSearch");
+      const clearSearch = document.querySelector("#clearSearch");
+      const toast = document.querySelector("#toast");
+      const cartOverlay = document.querySelector("#cartOverlay");
+      const cartDrawer = document.querySelector("#cartDrawer");
+      const cartClose = document.querySelector("#cartClose");
+      const checkoutModal = document.querySelector("#checkoutModal");
+      const checkoutForm = document.querySelector("#checkoutForm");
+      const checkoutClose = document.querySelector("#checkoutClose");
+
+      function setMobileMenu(open) {
+        mobileMenu.classList.toggle("hidden", !open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+        menuToggle.innerHTML = `<i data-lucide="${open ? "x" : "menu"}" class="h-5 w-5" aria-hidden="true"></i>`;
+        lucide.createIcons();
+      }
+
+      function cartCount() {
+        return state.cart.reduce((sum, item) => sum + item.qty, 0);
+      }
+
+      function cartTotal() {
+        return state.cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("toast-visible");
+        window.setTimeout(() => toast.classList.remove("toast-visible"), 1600);
+      }
+
+      function renderCategories() {
+        categoryTabs.innerHTML = menuData
+          .map(
+            (category) => `
+              <button
+                class="category-btn ${state.category === category.id ? "active" : ""} inline-flex h-11 shrink-0 items-center gap-2 rounded-md border border-ink/10 px-4 text-sm font-extrabold transition hover:border-ink"
+                type="button"
+                data-category="${category.id}"
+              >
+                <i data-lucide="${category.icon}" class="h-4 w-4" aria-hidden="true"></i>
+                ${category.label}
+              </button>
+            `
+          )
+          .join("");
+
+        categoryTabs.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", () => {
+            state.category = button.dataset.category;
+            render();
+          });
+        });
+      }
+
+      function visibleItems() {
+        const query = state.search.trim().toLowerCase();
+        const source = query
+          ? allItems()
+          : (menuData.find((category) => category.id === state.category)?.items || []).map(enrichItem);
+
+        return source.filter((item) => {
+          if (!query) return true;
+          return `${item.name} ${item.desc} ${item.category || ""}`.toLowerCase().includes(query);
+        });
+      }
+
+      function renderMenu() {
+        const items = visibleItems();
+        if (!items.length) {
+          menuGrid.innerHTML = `
+            <div class="rounded-lg border border-ink/10 bg-pearl p-8 text-center sm:col-span-2">
+              <i data-lucide="search-x" class="mx-auto h-8 w-8 text-wine" aria-hidden="true"></i>
+              <p class="mt-4 text-lg font-extrabold text-ink">Aucun résultat trouvé</p>
+              <p class="mt-2 text-sm text-ink/60">Essayez une autre recherche ou changez de catégorie.</p>
+            </div>
+          `;
+          lucide.createIcons();
+          return;
+        }
+
+        menuGrid.innerHTML = items
+          .map(
+            (item, index) => `
+              <article class="menu-card rounded-lg border border-ink/10 bg-pearl shadow-soft" style="animation-delay: ${Math.min(index * 45, 360)}ms">
+                <div class="grid grid-cols-[118px_1fr] gap-0">
+                  <div class="relative h-full min-h-[182px] overflow-hidden">
+                    <img src="${item.image}" alt="${item.name}" class="h-full min-h-[182px] w-full object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-ink/42 via-transparent to-transparent"></div>
+                  </div>
+                  <div class="flex min-w-0 flex-col p-5">
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        ${item.category ? `<p class="mb-1 text-xs font-extrabold uppercase tracking-[0.16em] text-wine">${item.category}</p>` : ""}
+                        <h3 class="text-lg font-extrabold leading-snug text-ink">${item.name}</h3>
+                      </div>
+                      <span class="shrink-0 rounded-md border border-gold/45 bg-[#fff9eb] px-3 py-1 text-sm font-extrabold text-wine shadow-sm">${formatPrice(item.price)}</span>
+                    </div>
+                    <p class="mt-3 flex-1 text-sm leading-6 text-ink/64">${item.desc}</p>
+                    <button class="add-to-cart pulse-gold mt-4 inline-flex items-center justify-center gap-2 rounded-md bg-ink px-4 py-2.5 text-sm font-extrabold text-pearl transition hover:bg-wine" type="button" data-id="${item.id}">
+                      <i data-lucide="plus" class="h-4 w-4" aria-hidden="true"></i>
+                      Ajouter
+                    </button>
+                  </div>
+                </div>
+              </article>
+            `
+          )
+          .join("");
+
+        menuGrid.querySelectorAll(".add-to-cart").forEach((button) => {
+          button.addEventListener("click", () => addToCart(button.dataset.id));
+        });
+        lucide.createIcons();
+      }
+
+      function addToCart(id) {
+        const item = findItem(id);
+        if (!item) return;
+        const existing = state.cart.find((cartItem) => cartItem.id === id);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          state.cart.push({ ...item, qty: 1 });
+        }
+        renderCart();
+        showToast(`${item.name} ajouté au panier`);
+      }
+
+      function updateQty(id, delta) {
+        const item = state.cart.find((cartItem) => cartItem.id === id);
+        if (!item) return;
+        item.qty += delta;
+        if (item.qty <= 0) {
+          state.cart = state.cart.filter((cartItem) => cartItem.id !== id);
+        }
+        renderCart();
+      }
+
+      function removeItem(id) {
+        state.cart = state.cart.filter((item) => item.id !== id);
+        renderCart();
+      }
+
+      function cartMarkup() {
+        if (!state.cart.length) {
+          return `
+            <div class="rounded-lg border border-dashed border-ink/15 bg-cream p-6 text-center">
+              <i data-lucide="shopping-bag" class="mx-auto h-8 w-8 text-ink/35" aria-hidden="true"></i>
+              <p class="mt-3 text-sm font-bold text-ink/60">Votre panier est vide.</p>
+            </div>
+          `;
+        }
+
+        return state.cart
+          .map(
+            (item) => `
+              <div class="rounded-lg border border-ink/10 bg-cream p-4">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="font-extrabold leading-snug text-ink">${item.name}</p>
+                    <p class="mt-1 text-sm font-bold text-wine">${formatPrice(item.price)}</p>
+                  </div>
+                  <button class="remove-cart inline-grid h-8 w-8 shrink-0 place-items-center rounded-md text-ink/45 transition hover:bg-white hover:text-wine" type="button" data-id="${item.id}" aria-label="Supprimer ${item.name}">
+                    <i data-lucide="trash-2" class="h-4 w-4" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="mt-3 flex items-center justify-between">
+                  <div class="inline-flex items-center rounded-md border border-ink/10 bg-white">
+                    <button class="qty-cart grid h-9 w-9 place-items-center text-ink transition hover:text-wine" type="button" data-id="${item.id}" data-delta="-1" aria-label="Réduire">
+                      <i data-lucide="minus" class="h-4 w-4" aria-hidden="true"></i>
+                    </button>
+                    <span class="w-8 text-center text-sm font-extrabold">${item.qty}</span>
+                    <button class="qty-cart grid h-9 w-9 place-items-center text-ink transition hover:text-wine" type="button" data-id="${item.id}" data-delta="1" aria-label="Ajouter">
+                      <i data-lucide="plus" class="h-4 w-4" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <span class="font-extrabold text-ink">${formatPrice(item.price * item.qty)}</span>
+                </div>
+              </div>
+            `
+          )
+          .join("");
+      }
+
+      function wireCartButtons(container) {
+        container.querySelectorAll(".qty-cart").forEach((button) => {
+          button.addEventListener("click", () => updateQty(button.dataset.id, Number(button.dataset.delta)));
+        });
+        container.querySelectorAll(".remove-cart").forEach((button) => {
+          button.addEventListener("click", () => removeItem(button.dataset.id));
+        });
+      }
+
+      function renderCart() {
+        const count = cartCount();
+        const total = cartTotal();
+        const totalText = formatPrice(total);
+        const markup = cartMarkup();
+
+        ["cartItemsDesktop", "cartItemsDrawer"].forEach((id) => {
+          const container = document.querySelector(`#${id}`);
+          container.innerHTML = markup;
+          wireCartButtons(container);
+        });
+
+        ["subtotalDesktop", "totalDesktop", "subtotalDrawer", "totalDrawer", "inlineTotal", "checkoutTotal"].forEach((id) => {
+          const node = document.querySelector(`#${id}`);
+          if (node) node.textContent = totalText;
+        });
+
+        document.querySelector("#floatingCartText").textContent = `Panier · ${totalText}`;
+
+        ["cartBadgeDesktop", "cartBadgeMobile"].forEach((id) => {
+          const badge = document.querySelector(`#${id}`);
+          badge.textContent = count;
+          badge.classList.toggle("hidden", count === 0);
+        });
+
+        document.querySelector("#checkoutDesktop").disabled = count === 0;
+        document.querySelector("#checkoutDrawer").disabled = count === 0;
+        document.querySelector("#checkoutDesktop").classList.toggle("opacity-45", count === 0);
+        document.querySelector("#checkoutDrawer").classList.toggle("opacity-45", count === 0);
+        renderCheckoutSummary();
+        lucide.createIcons();
+      }
+
+      function renderCheckoutSummary() {
+        const summary = document.querySelector("#checkoutSummary");
+        if (!summary) return;
+
+        summary.innerHTML = state.cart.length
+          ? state.cart
+              .map(
+                (item) => `
+                  <div class="flex items-start justify-between gap-3">
+                    <span class="font-bold text-ink">${item.qty} × ${item.name}</span>
+                    <span class="font-extrabold text-wine">${formatPrice(item.price * item.qty)}</span>
+                  </div>
+                `
+              )
+              .join("")
+          : `<p class="text-ink/60">Votre panier est vide.</p>`;
+      }
+
+      function openCart() {
+        cartOverlay.classList.remove("hidden");
+        cartDrawer.classList.add("drawer-open");
+        document.body.classList.add("overflow-hidden");
+      }
+
+      function closeCart() {
+        cartOverlay.classList.add("hidden");
+        cartDrawer.classList.remove("drawer-open");
+        document.body.classList.remove("overflow-hidden");
+      }
+
+      function openCheckout() {
+        if (!state.cart.length) {
+          showToast("Ajoutez d’abord un plat au panier");
+          return;
+        }
+        closeCart();
+        checkoutModal.classList.remove("hidden");
+        document.body.classList.add("overflow-hidden");
+        renderCheckoutSummary();
+      }
+
+      function closeCheckout() {
+        checkoutModal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      }
+
+      function render() {
+        renderCategories();
+        renderMenu();
+        renderCart();
+      }
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        setMobileMenu(!isOpen);
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => setMobileMenu(false));
+      });
+
+      menuSearch.addEventListener("input", (event) => {
+        state.search = event.target.value;
+        renderMenu();
+      });
+
+      clearSearch.addEventListener("click", () => {
+        state.search = "";
+        menuSearch.value = "";
+        renderMenu();
+      });
+
+      ["cartOpenDesktop", "cartOpenMobile", "floatingCart"].forEach((id) => {
+        document.querySelector(`#${id}`).addEventListener("click", openCart);
+      });
+
+      cartClose.addEventListener("click", closeCart);
+      cartOverlay.addEventListener("click", closeCart);
+      document.querySelector("#checkoutDesktop").addEventListener("click", openCheckout);
+      document.querySelector("#checkoutDrawer").addEventListener("click", openCheckout);
+      checkoutClose.addEventListener("click", closeCheckout);
+      checkoutModal.addEventListener("click", (event) => {
+        if (event.target === checkoutModal) closeCheckout();
+      });
+
+      checkoutForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(checkoutForm);
+        const name = data.get("name");
+        const total = formatPrice(cartTotal());
+        showToast(`Commande préparée pour ${name} · ${total}`);
+        state.cart = [];
+        checkoutForm.reset();
+        closeCheckout();
+        renderCart();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeCart();
+          closeCheckout();
+        }
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+      window.addEventListener("load", () => {
+        const introOverlay = document.querySelector("#introOverlay");
+        window.setTimeout(() => {
+          introOverlay.classList.add("curtain-open");
+        }, 250);
+        window.setTimeout(() => {
+          introOverlay.classList.add("opacity-0", "pointer-events-none");
+        }, 1150);
+      });
+
+      render();
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
