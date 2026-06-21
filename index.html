@@ -377,6 +377,19 @@
         object-position: center;
       }
 
+      .menu-thumb {
+        min-height: 190px;
+      }
+
+      .menu-thumb img {
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .menu-card:hover .menu-thumb img {
+        transform: scale(1.03);
+      }
+
       .category-btn.active {
         background:
           linear-gradient(135deg, #181714, #3e1f2b 48%, #7c1f2b),
@@ -397,8 +410,9 @@
 
       #introOverlay {
         background:
-          linear-gradient(135deg, rgba(124, 31, 43, 0.18), transparent 34%),
-          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 48px),
+          radial-gradient(circle at center, rgba(255, 253, 248, 0.13), transparent 34%),
+          linear-gradient(135deg, rgba(124, 31, 43, 0.28), transparent 34%),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 48px),
           #181714;
       }
 
@@ -409,6 +423,7 @@
         top: 0;
         bottom: 0;
         width: 50%;
+        z-index: 1;
         background:
           linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent),
           #181714;
@@ -428,6 +443,28 @@
       #introOverlay > div {
         position: relative;
         z-index: 2;
+      }
+
+      .intro-mark {
+        position: relative;
+        z-index: 3;
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.11), rgba(255, 253, 248, 0.035)),
+          linear-gradient(135deg, rgba(201, 154, 74, 0.18), rgba(124, 31, 43, 0.12));
+        border: 1px solid rgba(201, 154, 74, 0.34);
+        box-shadow:
+          0 28px 90px rgba(0, 0, 0, 0.44),
+          inset 0 1px 0 rgba(255, 253, 248, 0.2);
+        backdrop-filter: blur(8px);
+      }
+
+      .intro-title {
+        color: #fffdf8;
+        text-shadow:
+          0 2px 0 rgba(201, 154, 74, 0.34),
+          0 8px 28px rgba(0, 0, 0, 0.92),
+          0 0 42px rgba(255, 253, 248, 0.45);
       }
 
       #introOverlay.curtain-open::before {
@@ -467,10 +504,10 @@
 
   <body class="font-sans antialiased">
     <div id="introOverlay" class="fixed inset-0 z-[90] grid place-items-center bg-ink text-pearl transition duration-700">
-      <div class="px-6 text-center">
+      <div class="intro-mark mx-4 px-8 py-8 text-center sm:px-12">
         <div class="mx-auto mb-6 h-px w-48 gold-line"></div>
-        <p class="text-xs font-bold uppercase tracking-[0.28em] text-gold">Expérience cinq étoiles</p>
-        <h1 class="mt-3 font-display text-5xl font-bold">FAMILLE P</h1>
+        <p class="text-xs font-extrabold uppercase tracking-[0.28em] text-gold">Expérience cinq étoiles</p>
+        <h1 class="intro-title mt-3 font-display text-6xl font-bold sm:text-7xl">FAMILLE P</h1>
         <div class="mt-5 flex justify-center gap-1 text-gold" aria-label="Cinq étoiles">
           <i data-lucide="star" class="h-5 w-5 fill-current"></i>
           <i data-lucide="star" class="h-5 w-5 fill-current"></i>
@@ -1119,12 +1156,35 @@
             { id: "cafe-phindi", name: "Café Phindi", price: 4.5, desc: "Spécialité café du salon de thé.", image: "assets/gallery-cafe.jpeg" },
             { id: "coco-matcha", name: "Coco Matcha", price: 4.5, desc: "Matcha, coco et fraîcheur maison.", image: "assets/gallery-the-maison.jpeg" },
             { id: "cafe-sale", name: "Café salé", price: 2.5, desc: "Café vietnamien, froid ou chaud au choix.", image: "assets/gallery-cafe.jpeg" },
+            { id: "cafe-coco", name: "Café coco", price: 2.5, desc: "Café maison, froid ou chaud au choix.", image: null },
+            { id: "cafe-oeuf", name: "Café à l’œuf", price: 2.5, desc: "Café maison, froid ou chaud au choix.", image: null },
             { id: "mocktail-blue-sea", name: "Virgin Mojito Blue Sea", price: 5, desc: "Mocktail frais et coloré.", image: "assets/gallery-blue-sea.jpeg" },
             { id: "mocktail-passion", name: "Mocktail orange fruit de la passion", price: 5, desc: "Boisson froide maison.", image: "assets/gallery-mojito.jpeg" },
-            { id: "mocktail-peche-fraise", name: "Mocktail pêche fraise", price: 5, desc: "Boisson froide maison.", image: "assets/gallery-mojito.jpeg" },
-            { id: "the-chrysantheme", name: "Thé chrysanthème et longane", price: 3.5, desc: "Boisson chaude maison.", image: "assets/gallery-the-maison.jpeg" },
-            { id: "the-hibiscus", name: "Thé hibiscus et rose", price: 3.5, desc: "Boisson chaude parfumée.", image: "assets/gallery-the-maison.jpeg" },
-            { id: "soft", name: "Soft 33 cl", price: 3, desc: "Coca-Cola, Orangina, Oasis ou jus de coco.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "mocktail-peche-fraise", name: "Mocktail pêche fraise", price: 5, desc: "Boisson froide maison.", image: null },
+            { id: "the-chrysantheme", name: "Thé chrysanthème et longane", price: 3.5, desc: "Boisson chaude maison.", image: null },
+            { id: "the-hibiscus", name: "Thé hibiscus et rose", price: 3.5, desc: "Boisson chaude parfumée.", image: null },
+            { id: "cafe-vietnamien-c7", name: "Café vietnamien C7", price: 2.5, desc: "Boisson chaude maison.", image: null },
+            { id: "cafe-lavazza", name: "Café Lavazza", price: 2, desc: "Café chaud.", image: null },
+            { id: "coca-cola", name: "Coca-Cola 33 cl", price: 3, desc: "Soft.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "coca-cola-zero", name: "Coca-Cola zéro 33 cl", price: 3, desc: "Soft.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "orangina", name: "Orangina 33 cl", price: 3, desc: "Soft.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "oasis", name: "Oasis 33 cl", price: 3, desc: "Soft.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "jus-coco", name: "Jus de coco 33 cl", price: 3, desc: "Soft.", image: "assets/gallery-blue-sea.jpeg" },
+            { id: "evian-50", name: "Evian 50 cl", price: 3, desc: "Eau minérale.", image: null },
+            { id: "badoit-50", name: "Badoit 50 cl", price: 3, desc: "Eau pétillante.", image: null },
+            { id: "evian-1l", name: "Evian 1 L", price: 4, desc: "Eau minérale.", image: null },
+            { id: "badoit-1l", name: "Badoit 1 L", price: 4, desc: "Eau pétillante.", image: null },
+            { id: "vin-rouge-verre", name: "Vin rouge - verre", price: 4, desc: "Merlot ou Côte du Rhône.", image: null },
+            { id: "vin-blanc-verre", name: "Vin blanc - verre", price: 4, desc: "Sauvignon ou Reuilly.", image: null },
+            { id: "vin-rose-verre", name: "Vin rosé - verre", price: 4, desc: "IGP Méditerranée Kairos.", image: null },
+            { id: "vin-rouge-bouteille", name: "Vin rouge - bouteille 75 cl", price: 18.5, desc: "Merlot ou Côte du Rhône.", image: null },
+            { id: "vin-blanc-bouteille", name: "Vin blanc - bouteille 75 cl", price: 18.5, desc: "Sauvignon ou Reuilly.", image: null },
+            { id: "vin-rose-bouteille", name: "Vin rosé - bouteille 75 cl", price: 18.5, desc: "IGP Méditerranée Kairos.", image: null },
+            { id: "heineken", name: "Heineken 33 cl", price: 4, desc: "Bière.", image: null },
+            { id: "desperados", name: "Desperados 33 cl", price: 5, desc: "Bière.", image: null },
+            { id: "tsingtao", name: "Tsingtao 33 cl", price: 5.5, desc: "Bière.", image: null },
+            { id: "saigon-beer", name: "Saigon beer 33 cl", price: 5.5, desc: "Bière.", image: null },
+            { id: "shinga", name: "Shinga 33 cl", price: 5.5, desc: "Bière.", image: null },
           ],
         },
         {
@@ -1132,10 +1192,22 @@
           label: "Bubble tea",
           icon: "cup-soda",
           items: [
-            { id: "the-fruite", name: "Thé fruité", price: 6, desc: "Fraise hibiscus, melon kiwi, mangue ananas, myrtille litchi, mangue macchiato ou dragon macchiato.", image: null },
-            { id: "the-latte", name: "Thé latté", price: 4.5, desc: "Original, melon, matcha, mangue, fraise, taro ou sakula.", image: null },
-            { id: "boba-fraise", name: "Boba fruité", price: 0.5, desc: "Supplément topping : fraise, kiwi, mangue, ananas, myrtille ou litchi.", image: null },
-            { id: "topping", name: "Topping bubble tea", price: 0.5, desc: "Perle de 3Q, tapioca noir ou gelée de nata.", image: null },
+            { id: "the-fruite-fraise-hibiscus", name: "Thé fruité fraise hibiscus", price: 6, desc: "Thé fruité maison.", image: null },
+            { id: "the-fruite-melon-kiwi", name: "Thé fruité melon kiwi", price: 6, desc: "Thé fruité maison.", image: null },
+            { id: "the-fruite-mangue-ananas", name: "Thé fruité mangue ananas", price: 6, desc: "Thé fruité maison.", image: null },
+            { id: "the-fruite-myrtille-litchi", name: "Thé fruité myrtille litchi", price: 6, desc: "Thé fruité maison.", image: null },
+            { id: "the-fruite-mangue-macchiato", name: "Thé fruité mangue macchiato", price: 6, desc: "Thé fruité maison avec crème macchiato.", image: null },
+            { id: "the-fruite-dragon-macchiato", name: "Thé fruité dragon macchiato", price: 6, desc: "Thé fruité maison avec crème macchiato.", image: null },
+            { id: "the-latte-original", name: "Thé latté original", price: 4.5, desc: "Thé latté maison.", image: null },
+            { id: "the-latte-melon", name: "Thé latté melon", price: 4.5, desc: "Thé latté maison.", image: null },
+            { id: "the-latte-matcha", name: "Thé latté matcha", price: 4.5, desc: "Thé latté maison.", image: null },
+            { id: "the-latte-mangue", name: "Thé latté mangue", price: 4.5, desc: "Thé latté maison.", image: null },
+            { id: "the-latte-fraise", name: "Thé latté fraise", price: 4.5, desc: "Thé latté maison.", image: null },
+            { id: "the-latte-taro", name: "Thé latté taro", price: 4.5, desc: "Thé latté maison.", image: null },
+            { id: "the-latte-sakula", name: "Thé latté sakula", price: 4.5, desc: "Thé latté maison.", image: null },
+            { id: "bobas-au-choix", name: "Bobas au choix", price: 0.5, desc: "Fraise, kiwi, mangue, ananas, myrtille ou litchi.", image: null },
+            { id: "cremes-au-choix", name: "Crèmes au choix", price: 0.5, desc: "Œuf, coco ou cheese.", image: null },
+            { id: "toppings-bubble-tea", name: "Toppings bubble tea", price: 0.5, desc: "Perle de 3Q, tapioca noir ou gelée de nata.", image: null },
           ],
         },
         {
@@ -1187,30 +1259,65 @@
         "banh-mi-special": "ảnh món ăn/bánh mì.jpeg",
         "banh-mi-poulet": "ảnh món ăn/bánh mì.jpeg",
         "banh-mi-boeuf": "ảnh món ăn/bánh mì.jpeg",
-        "baguette-sel-pimente": "assets/dish-baguette-pimente-variant.jpeg",
+        "baguette-sel-pimente": "ảnh món ăn/Baguette grillée au sel pimenté.jpeg",
         "trois-couleurs": "assets/dessert-che.jpeg",
         "mango": "assets/dessert-mango-che.jpeg",
         "gateau-banane": "assets/dessert-gateau-banane.jpeg",
         "gateau-manioc": "assets/dessert-gateau-manioc.jpeg",
         "perles-coco": "assets/dessert-perles-coco.jpeg",
         "boules-sesames": "assets/dessert-banh-cam.jpeg",
-        "milkshake-fraise": "assets/drink-milkshake-fraise.jpeg",
-        "milkshake-mangue": "assets/drink-milkshake-mangue.jpeg",
-        "the-glace-maison": "assets/drink-the-maison.jpeg",
-        "cafe-glace-vietnamien": "assets/gallery-cafe.jpeg",
-        "cafe-phindi": "assets/drink-cafe-phindi.jpeg",
-        "coco-matcha": "assets/drink-coco-matcha.jpeg",
+        "milkshake-fraise": "ảnh món ăn/Milkshake fraise.jpeg",
+        "milkshake-mangue": "ảnh món ăn/Milkshake mangue.jpeg",
+        "the-glace-maison": "ảnh món ăn/Thé glacé maison.jpeg",
+        "cafe-glace-vietnamien": "ảnh món ăn/Cà phê glacé.jpeg",
+        "cafe-phindi": "ảnh món ăn/Cà phê phindi.jpeg",
+        "coco-matcha": "ảnh món ăn/Coco matcha.jpeg",
         "cafe-sale": "ảnh món ăn/Café salé.jpg",
-        "mocktail-blue-sea": "assets/drink-blue-sea.jpeg",
-        "mocktail-passion": "assets/drink-mocktail-passion.jpeg",
-        "mocktail-peche-fraise": "assets/drink-mojito.jpeg",
-        "the-chrysantheme": "assets/drink-the-chaud.jpeg",
-        "the-hibiscus": "ảnh món ăn/WhatsApp Image 2026-06-05 at 15.05.33 (1).jpeg",
-        "soft": "ảnh món ăn/Soft 33 cl.jpg",
-        "the-fruite": null,
-        "the-latte": null,
-        "boba-fraise": null,
-        "topping": null,
+        "cafe-coco": "ảnh món ăn/Café coco.jpg",
+        "cafe-oeuf": "ảnh món ăn/Café à l’œuf.jpg",
+        "mocktail-blue-sea": "ảnh món ăn/Virgin Mojito Blue Sea.jpeg",
+        "mocktail-passion": "ảnh món ăn/Mocktail orange fruit de la passion.jpeg",
+        "mocktail-peche-fraise": "ảnh món ăn/Mojito Fraise-Péche.jpeg",
+        "the-chrysantheme": "ảnh món ăn/Thé chrysanthème et longane.jpg",
+        "the-hibiscus": "ảnh món ăn/Thé hibiscus et rose.jpg",
+        "cafe-vietnamien-c7": "ảnh món ăn/Café vietnamien C7.jpg",
+        "cafe-lavazza": "ảnh món ăn/Café Lavazza.jpg",
+        "coca-cola": "ảnh món ăn/Soft 33 cl.jpg",
+        "coca-cola-zero": "ảnh món ăn/Soft 33 cl.jpg",
+        "orangina": "ảnh món ăn/Orangina 33 cl.jpg",
+        "oasis": "ảnh món ăn/Oasis 33 cl.jpg",
+        "jus-coco": "ảnh món ăn/Jus de coco 33 cl.jpg",
+        "evian-50": "ảnh món ăn/Evian.jpg",
+        "badoit-50": "ảnh món ăn/Badoit.jpg",
+        "evian-1l": "ảnh món ăn/Evian.jpg",
+        "badoit-1l": "ảnh món ăn/Badoit.jpg",
+        "vin-rouge-verre": "ảnh món ăn/Vin rouge - verre.jpg",
+        "vin-blanc-verre": "ảnh món ăn/Vin blanc - verre.jpg",
+        "vin-rose-verre": "ảnh món ăn/Vin rosé - verre.jpg",
+        "vin-rouge-bouteille": "ảnh món ăn/Vin rouge - verre.jpg",
+        "vin-blanc-bouteille": "ảnh món ăn/Vin blanc - verre.jpg",
+        "vin-rose-bouteille": "ảnh món ăn/Vin rosé - verre.jpg",
+        "heineken": "ảnh món ăn/Heineken 33 cl.jpg",
+        "desperados": "ảnh món ăn/Desperados 33 cl.jpg",
+        "tsingtao": "ảnh món ăn/Tsingtao 33 cl.jpg",
+        "saigon-beer": "ảnh món ăn/Saigon beer 33 cl.jpg",
+        "shinga": "ảnh món ăn/Shinga 33 cl.jpg",
+        "the-fruite-fraise-hibiscus": "ảnh món ăn/The fruit fraise hibiscus.jpeg",
+        "the-fruite-melon-kiwi": "ảnh món ăn/The fruit melon kiwi.jpeg",
+        "the-fruite-mangue-ananas": "ảnh món ăn/The fruit mangue ananas.jpeg",
+        "the-fruite-myrtille-litchi": "ảnh món ăn/The fruit myrtille lychee.jpeg",
+        "the-fruite-mangue-macchiato": "ảnh món ăn/The fruit machiato mangue.jpeg",
+        "the-fruite-dragon-macchiato": "ảnh món ăn/Thé fruité dragon macchiato.jpg",
+        "the-latte-original": "ảnh món ăn/Original sucre brun.jpeg",
+        "the-latte-melon": "ảnh món ăn/Thé latté melon.jpg",
+        "the-latte-matcha": "ảnh món ăn/Tea latte matcha.jpeg",
+        "the-latte-mangue": "ảnh món ăn/Tea latte mangue.jpeg",
+        "the-latte-fraise": "ảnh món ăn/Tea latte fraise.jpeg",
+        "the-latte-taro": "ảnh món ăn/Tea latte taro.jpeg",
+        "the-latte-sakula": "ảnh món ăn/Tea latte sakula.jpeg",
+        "bobas-au-choix": null,
+        "cremes-au-choix": null,
+        "toppings-bubble-tea": null,
         "sushis": "assets/sushi-sushis-v2.jpeg",
         "sandwich-sushi": "assets/sushi-sandwich-v2.jpeg",
         "makis": "assets/sushi-makis-v2.jpeg",
@@ -1334,8 +1441,8 @@
             (item, index) => {
               const imageMarkup = item.image
                 ? `
-                  <div class="full-image-frame relative h-full min-h-[182px] overflow-hidden">
-                    <img src="${item.image}" alt="${item.name}" class="h-full min-h-[182px] w-full p-1.5" />
+                  <div class="full-image-frame menu-thumb relative h-full overflow-hidden">
+                    <img src="${item.image}" alt="${item.name}" class="h-full min-h-[190px] w-full p-1.5" />
                     <div class="absolute inset-0 bg-gradient-to-t from-ink/42 via-transparent to-transparent"></div>
                   </div>
                 `
@@ -1343,7 +1450,7 @@
 
               return `
               <article class="menu-card rounded-lg border border-ink/10 bg-pearl shadow-soft" style="animation-delay: ${Math.min(index * 45, 360)}ms">
-                <div class="grid ${item.image ? "grid-cols-[118px_1fr]" : ""} gap-0">
+                <div class="grid ${item.image ? "grid-cols-[136px_1fr] sm:grid-cols-[150px_1fr]" : ""} gap-0">
                   ${imageMarkup}
                   <div class="flex min-w-0 flex-col p-5">
                     <div class="flex items-start justify-between gap-3">
