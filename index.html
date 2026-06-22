@@ -408,6 +408,52 @@
         transform: translateY(0);
       }
 
+      .cart-panel {
+        position: relative;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 249, 235, 0.94)),
+          repeating-linear-gradient(135deg, rgba(201, 154, 74, 0.1) 0 1px, transparent 1px 20px);
+        border-color: rgba(201, 154, 74, 0.42);
+        box-shadow:
+          0 30px 90px rgba(24, 23, 20, 0.16),
+          0 0 0 1px rgba(255, 253, 248, 0.82) inset;
+      }
+
+      .cart-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 4px;
+        background: linear-gradient(90deg, #7c1f2b, #c99a4a, #0f6b5f);
+      }
+
+      .cart-empty {
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.94), rgba(251, 247, 239, 0.92)),
+          radial-gradient(circle at top, rgba(201, 154, 74, 0.18), transparent 58%);
+      }
+
+      .cart-totals {
+        border-radius: 8px;
+        background: rgba(255, 253, 248, 0.78);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84);
+      }
+
+      .checkout-button:disabled {
+        cursor: not-allowed;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 249, 235, 0.96)),
+          repeating-linear-gradient(135deg, rgba(124, 31, 43, 0.08) 0 1px, transparent 1px 14px);
+        color: #7c1f2b;
+        border: 1px solid rgba(124, 31, 43, 0.34);
+        box-shadow: inset 0 0 0 2px rgba(201, 154, 74, 0.2);
+      }
+
+      .checkout-button:not(:disabled) {
+        box-shadow: 0 18px 42px rgba(124, 31, 43, 0.26);
+      }
+
       #introOverlay {
         background:
           radial-gradient(circle at center, rgba(255, 253, 248, 0.13), transparent 34%),
@@ -647,8 +693,8 @@
               <p class="mt-2 font-bold leading-6 text-white/88">15 avenue Maréchal Leclerc, 45500 Gien</p>
             </div>
             <div class="hero-stat-card deco-panel border border-white/14 bg-white/10 p-5 backdrop-blur-md">
-              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Salon de thé</p>
-              <p class="mt-2 font-bold leading-6 text-white/88">Bubble tea, sushis et à emporter de 14h00 à 20h00</p>
+              <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Salon de thé & Traiteur</p>
+              <p class="mt-2 font-bold leading-6 text-white/88">Bubble tea & Sushi à emporter<br />14h - 20h</p>
             </div>
             <div class="hero-stat-card deco-panel border border-white/14 bg-white/10 p-5 backdrop-blur-md">
               <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Commande</p>
@@ -667,8 +713,8 @@
           </article>
           <article class="fine-card deco-panel reveal reveal-zoom rounded-lg border border-ink/10 p-7 shadow-soft">
             <i data-lucide="cup-soda" class="h-7 w-7 text-jade" aria-hidden="true"></i>
-            <h2 class="mt-4 text-xl font-extrabold text-ink">Salon de thé</h2>
-            <p class="mt-3 leading-7 text-ink/68">Bubble tea, thés fruités, boissons maison et pauses gourmandes l’après-midi.</p>
+            <h2 class="mt-4 text-xl font-extrabold text-ink">Salon de thé & Traiteur</h2>
+            <p class="mt-3 leading-7 text-ink/68">Bubble tea & Sushi à emporter<br />14h - 20h</p>
           </article>
           <article class="fine-card deco-panel reveal reveal-right rounded-lg border border-ink/10 p-7 shadow-soft">
             <i data-lucide="shopping-bag" class="h-7 w-7 text-gold" aria-hidden="true"></i>
@@ -682,13 +728,13 @@
         <div class="marquee-track flex w-max items-center gap-8 whitespace-nowrap text-sm font-extrabold uppercase tracking-[0.22em] text-gold">
           <span>Maison familiale</span><span class="text-white/35">•</span>
           <span>Cuisine vietnamienne</span><span class="text-white/35">•</span>
-          <span>Salon de thé</span><span class="text-white/35">•</span>
+          <span>Salon de thé & Traiteur</span><span class="text-white/35">•</span>
           <span>Bubble tea maison</span><span class="text-white/35">•</span>
           <span>Service élégant</span><span class="text-white/35">•</span>
           <span>À emporter</span><span class="text-white/35">•</span>
           <span>Maison familiale</span><span class="text-white/35">•</span>
           <span>Cuisine vietnamienne</span><span class="text-white/35">•</span>
-          <span>Salon de thé</span><span class="text-white/35">•</span>
+          <span>Salon de thé & Traiteur</span><span class="text-white/35">•</span>
           <span>Bubble tea maison</span><span class="text-white/35">•</span>
           <span>Service élégant</span><span class="text-white/35">•</span>
           <span>À emporter</span>
@@ -702,7 +748,8 @@
               <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-wine">Carte & commande</p>
               <h2 class="mt-3 font-display text-5xl font-bold leading-tight text-ink sm:text-6xl">Choisissez vos plats</h2>
               <p class="mt-4 text-lg leading-8 text-ink/70">
-                Menu transcrit depuis la carte du restaurant. Les prix affichés servent à préparer votre demande de commande.
+                Menu transcrit depuis la carte du restaurant. Préparer votre commande.
+                <span class="mt-2 block font-extrabold text-wine">Payer sur place.</span>
               </p>
             </div>
             <div class="deco-panel fine-card rounded-lg border border-ink/10 p-5 shadow-soft">
@@ -738,16 +785,18 @@
             </div>
 
             <aside class="hidden lg:block">
-              <div class="deco-panel sticky top-24 rounded-lg border border-ink/10 bg-pearl p-5 shadow-soft">
+              <div class="cart-panel deco-panel sticky top-24 rounded-lg border p-5">
                 <div class="flex items-center justify-between">
                   <div>
                     <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wine">Votre commande</p>
                     <h3 class="mt-1 text-2xl font-extrabold text-ink">Panier</h3>
                   </div>
-                  <i data-lucide="shopping-basket" class="h-7 w-7 text-gold" aria-hidden="true"></i>
+                  <span class="grid h-12 w-12 place-items-center rounded-md bg-wine text-pearl shadow-glow">
+                    <i data-lucide="shopping-basket" class="h-6 w-6" aria-hidden="true"></i>
+                  </span>
                 </div>
                 <div id="cartItemsDesktop" class="mt-5 max-h-[360px] space-y-3 overflow-auto pr-1"></div>
-                <div class="mt-5 border-t border-ink/10 pt-5">
+                <div class="cart-totals mt-5 border border-gold/25 p-4">
                   <div class="flex items-center justify-between text-sm font-bold text-ink/65">
                     <span>Sous-total</span>
                     <span id="subtotalDesktop">0,00 €</span>
@@ -756,9 +805,9 @@
                     <span>Total</span>
                     <span id="totalDesktop">0,00 €</span>
                   </div>
-                  <button id="checkoutDesktop" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="button">
+                  <button id="checkoutDesktop" class="checkout-button mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="button">
                     <i data-lucide="credit-card" class="h-4 w-4" aria-hidden="true"></i>
-                    Passer au paiement
+                    Préparer votre commande
                   </button>
                   <p class="mt-3 text-xs leading-5 text-ink/55">Paiement à confirmer au restaurant. Aucun paiement réel n’est débité sur cette page.</p>
                 </div>
@@ -846,18 +895,14 @@
                   <i data-lucide="cup-soda" class="h-6 w-6" aria-hidden="true"></i>
                 </span>
                 <div>
-                  <h3 class="text-2xl font-extrabold">Salon de thé & à emporter</h3>
-                  <p class="text-sm font-bold uppercase tracking-[0.16em] text-gold">Bubble tea & sushis</p>
+                  <h3 class="text-2xl font-extrabold">Salon de thé & Traiteur</h3>
+                  <p class="text-sm font-bold uppercase tracking-[0.16em] text-gold">Bubble tea & Sushi à emporter</p>
                 </div>
               </div>
               <div class="mt-7 divide-y divide-white/10">
                 <div class="grid gap-2 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
-                  <span class="font-semibold text-white/72">Bubble tea / à emporter</span>
-                  <span class="font-extrabold">14h00 - 20h00</span>
-                </div>
-                <div class="grid gap-2 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
-                  <span class="font-semibold text-white/72">Sushis</span>
-                  <span class="font-extrabold">14h00 - 20h00</span>
+                  <span class="font-semibold text-white/72">Bubble tea & Sushi à emporter</span>
+                  <span class="font-extrabold">14h - 20h</span>
                 </div>
                 <div class="my-4 rounded-md border border-gold/70 bg-[#fff9eb] p-4 shadow-glow">
                   <p class="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.14em] text-wine">
@@ -953,7 +998,7 @@
     </button>
 
     <div id="cartOverlay" class="fixed inset-0 z-[60] hidden bg-black/55"></div>
-    <aside id="cartDrawer" class="fixed bottom-0 right-0 z-[70] flex h-[92svh] w-full max-w-md translate-x-full flex-col rounded-tl-lg bg-pearl shadow-2xl transition-transform duration-300 sm:top-0 sm:h-full sm:rounded-none">
+    <aside id="cartDrawer" class="cart-panel fixed bottom-0 right-0 z-[70] flex h-[92svh] w-full max-w-md translate-x-full flex-col rounded-tl-lg border-l border-gold/25 bg-pearl shadow-2xl transition-transform duration-300 sm:top-0 sm:h-full sm:rounded-none">
       <div class="flex items-center justify-between border-b border-ink/10 p-5">
         <div>
           <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wine">Votre commande</p>
@@ -964,7 +1009,7 @@
         </button>
       </div>
       <div id="cartItemsDrawer" class="flex-1 space-y-3 overflow-auto p-5"></div>
-      <div class="border-t border-ink/10 p-5">
+      <div class="cart-totals m-5 mt-0 border border-gold/25 p-4">
         <div class="flex items-center justify-between text-sm font-bold text-ink/65">
           <span>Sous-total</span>
           <span id="subtotalDrawer">0,00 €</span>
@@ -973,9 +1018,9 @@
           <span>Total</span>
           <span id="totalDrawer">0,00 €</span>
         </div>
-        <button id="checkoutDrawer" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="button">
+        <button id="checkoutDrawer" class="checkout-button mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="button">
           <i data-lucide="credit-card" class="h-4 w-4" aria-hidden="true"></i>
-          Passer au paiement
+          Préparer votre commande
         </button>
       </div>
     </aside>
@@ -1032,7 +1077,7 @@
                 <span>Total</span>
                 <span id="checkoutTotal">0,00 €</span>
               </div>
-              <p class="mt-3 text-xs leading-5 text-ink/58">Cette page prépare la demande de commande. Le paiement réel est confirmé avec le restaurant.</p>
+              <p class="mt-3 text-xs leading-5 text-ink/58">Cette page prépare votre commande. Le paiement réel est confirmé avec le restaurant.</p>
               <button class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#651821]" type="submit">
                 <i data-lucide="badge-check" class="h-4 w-4" aria-hidden="true"></i>
                 Confirmer la commande
@@ -1063,9 +1108,9 @@
             },
             {
               id: "menu-midi",
-              name: "Menu midi",
+              name: "Menu midi : Entrée * + Plat ** + Dessert ***",
               price: 15,
-              desc: "Entrée + plat + dessert, uniquement le midi du lundi au vendredi.",
+              desc: "Uniquement le midi du lundi au vendredi et sur place\n\n* Sauf crêpes vietnamiennes, Bánh xèo\n** Sauf Bœuf luc lac, Gambas sautées, Bò né\n*** Sauf Milkshake",
               image: "assets/gallery-bo-bun.jpeg",
             },
           ],
@@ -1099,11 +1144,11 @@
             { id: "wings", name: "Wings - 8 pièces", price: 11.5, desc: "Accompagnement au choix : riz blanc, riz cantonais ou nouilles sautées.", image: "assets/gallery-wings.jpeg" },
             { id: "viande-caramel", name: "Viande au caramel", price: 11.5, desc: "Poulet ou porc au choix, avec riz blanc ou riz cantonais.", image: "assets/gallery-bun-cha.jpeg" },
             { id: "pho", name: "Soupe tonkinoise - Phở", price: 12.5, desc: "Nouilles de riz plates, bœuf, boulettes de bœuf, tripes, soja, oignons, coriandre.", image: "assets/pho-boeuf.jpeg" },
-            { id: "bo-bun", name: "Bò bún", price: 12.5, desc: "Bœuf, poulet ou crevettes, vermicelles, salade, pickles, cacahuètes et nems.", image: "assets/gallery-bo-bun.jpeg" },
+            { id: "bo-bun", name: "Bò bún", price: 12.5, desc: "Bœuf, poulet ou crevettes, vermicelles, salade, piqué de carottes, cacahuètes et nems.", image: "assets/gallery-bo-bun.jpeg" },
             { id: "com-ga", name: "Riz au poulet - Cơm gà", price: 12.5, desc: "Riz au curcuma, pickles de carottes, concombre, oignons frits et poulet.", image: "assets/gallery-bun-cha.jpeg" },
             { id: "nouilles-mer", name: "Nouilles sautées fruits de mer", price: 12.5, desc: "Nouilles, crevette, calamar, oignons, concombre, chou chinois, soja, carotte.", image: "assets/gallery-banh-xeo.jpeg" },
-            { id: "banh-hoi", name: "Bánh hỏi", price: 12.5, desc: "Vermicelles, crevette, poitrine de porc grillé, pâté citronnelle et pickles.", image: "assets/gallery-bun-cha.jpeg" },
-            { id: "bun-thit-nuong", name: "Viandes grillées - Bún Thịt Nướng", price: 12.5, desc: "Vermicelles, poitrine et pâté de porc grillé, pickles et oignons frits.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "banh-hoi", name: "Bánh hỏi", price: 12.5, desc: "Vermicelles, crevette, poitrine de porc grillé, pâté citronnelle et pickles de carottes.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "bun-thit-nuong", name: "Viandes grillées - Bún Thịt Nướng", price: 12.5, desc: "Vermicelles, poitrine et pâté de porc grillé, pickles de carottes et oignons frits.", image: "assets/gallery-bun-cha.jpeg" },
             { id: "porc-aigre-douce", name: "Porc aigre douce", price: 12.5, desc: "Servi avec riz blanc et concombre.", image: "assets/gallery-bun-cha.jpeg" },
           ],
         },
@@ -1125,8 +1170,8 @@
           label: "Bánh mì",
           icon: "sandwich",
           items: [
-            { id: "banh-mi-special", name: "Bánh mì - Le spécial", price: 5.5, desc: "Porc, pâté de porc, mayonnaise, pickles, coriandre, concombre, sauce maison.", image: "assets/gallery-bun-cha.jpeg" },
-            { id: "banh-mi-poulet", name: "Bánh mì - Le poulet", price: 5.5, desc: "Poulet, pâté de poulet, mayonnaise, pickles, coriandre et sauce maison.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "banh-mi-special", name: "Bánh mì - Le spécial", price: 5.5, desc: "Porc, pâté de porc, mayonnaise, pickles de carottes, coriandre, concombre, sauce maison.", image: "assets/gallery-bun-cha.jpeg" },
+            { id: "banh-mi-poulet", name: "Bánh mì - Le poulet", price: 5.5, desc: "Poulet, pâté de poulet, mayonnaise, pickles de carottes, coriandre et sauce maison.", image: "assets/gallery-bun-cha.jpeg" },
             { id: "banh-mi-boeuf", name: "Bánh mì - Bœuf citronnelle", price: 6.5, desc: "Bœuf mariné, pickles de carottes, concombre et coriandre.", image: "assets/gallery-bo-luc-lac.jpeg" },
             { id: "baguette-sel-pimente", name: "Baguette grillée au sel pimenté", price: 6.5, desc: "Baguette grillée, sel pimenté, œuf, pâté de porc, oignon frit, ciboulette.", image: "assets/gallery-bun-cha.jpeg" },
           ],
@@ -1197,7 +1242,7 @@
             { id: "the-fruite-mangue-ananas", name: "Thé fruité mangue ananas", price: 6, desc: "Thé fruité maison.", image: null },
             { id: "the-fruite-myrtille-litchi", name: "Thé fruité myrtille litchi", price: 6, desc: "Thé fruité maison.", image: null },
             { id: "the-fruite-mangue-macchiato", name: "Thé fruité mangue macchiato", price: 6, desc: "Thé fruité maison avec crème macchiato.", image: null },
-            { id: "the-fruite-dragon-macchiato", name: "Thé fruité dragon macchiato", price: 6, desc: "Thé fruité maison avec crème macchiato.", image: null },
+            { id: "the-fruite-melon-vert-macchiato", name: "Thé fruit Macchiato melon vert", price: 6, desc: "Thé fruit maison avec crème macchiato.", image: null },
             { id: "the-latte-original", name: "Thé latté original", price: 4.5, desc: "Thé latté maison.", image: null },
             { id: "the-latte-melon", name: "Thé latté melon", price: 4.5, desc: "Thé latté maison.", image: null },
             { id: "the-latte-matcha", name: "Thé latté matcha", price: 4.5, desc: "Thé latté maison.", image: null },
@@ -1307,9 +1352,9 @@
         "the-fruite-mangue-ananas": "ảnh món ăn/The fruit mangue ananas.jpeg",
         "the-fruite-myrtille-litchi": "ảnh món ăn/The fruit myrtille lychee.jpeg",
         "the-fruite-mangue-macchiato": "ảnh món ăn/The fruit machiato mangue.jpeg",
-        "the-fruite-dragon-macchiato": "ảnh món ăn/Thé fruité dragon macchiato.jpg",
+        "the-fruite-melon-vert-macchiato": "ảnh món ăn/The fruit machiato melon vert.jpeg",
         "the-latte-original": "ảnh món ăn/Original sucre brun.jpeg",
-        "the-latte-melon": "ảnh món ăn/Thé latté melon.jpg",
+        "the-latte-melon": "ảnh món ăn/Thé latté melon.jpg.jpeg",
         "the-latte-matcha": "ảnh món ăn/Tea latte matcha.jpeg",
         "the-latte-mangue": "ảnh món ăn/Tea latte mangue.jpeg",
         "the-latte-fraise": "ảnh món ăn/Tea latte fraise.jpeg",
@@ -1460,7 +1505,7 @@
                       </div>
                       <span class="shrink-0 rounded-md border border-gold/45 bg-[#fff9eb] px-3 py-1 text-sm font-extrabold text-wine shadow-sm">${formatPrice(item.price)}</span>
                     </div>
-                    <p class="mt-3 flex-1 text-sm leading-6 text-ink/64">${item.desc}</p>
+                    <p class="mt-3 flex-1 whitespace-pre-line text-sm leading-6 text-ink/64">${item.desc}</p>
                     <button class="add-to-cart pulse-gold mt-4 inline-flex items-center justify-center gap-2 rounded-md bg-ink px-4 py-2.5 text-sm font-extrabold text-pearl transition hover:bg-wine" type="button" data-id="${item.id}">
                       <i data-lucide="plus" class="h-4 w-4" aria-hidden="true"></i>
                       Ajouter
@@ -1510,9 +1555,12 @@
       function cartMarkup() {
         if (!state.cart.length) {
           return `
-            <div class="rounded-lg border border-dashed border-ink/15 bg-cream p-6 text-center">
-              <i data-lucide="shopping-bag" class="mx-auto h-8 w-8 text-ink/35" aria-hidden="true"></i>
-              <p class="mt-3 text-sm font-bold text-ink/60">Votre panier est vide.</p>
+            <div class="cart-empty rounded-lg border border-dashed border-gold/45 p-6 text-center shadow-sm">
+              <span class="mx-auto grid h-12 w-12 place-items-center rounded-md bg-wine/10 text-wine">
+                <i data-lucide="shopping-bag" class="h-7 w-7" aria-hidden="true"></i>
+              </span>
+              <p class="mt-3 text-sm font-extrabold text-ink">Votre panier est vide.</p>
+              <p class="mt-1 text-xs font-semibold leading-5 text-ink/55">Ajoutez un plat depuis la carte pour préparer votre commande.</p>
             </div>
           `;
         }
@@ -1582,10 +1630,13 @@
           badge.classList.toggle("hidden", count === 0);
         });
 
-        document.querySelector("#checkoutDesktop").disabled = count === 0;
-        document.querySelector("#checkoutDrawer").disabled = count === 0;
-        document.querySelector("#checkoutDesktop").classList.toggle("opacity-45", count === 0);
-        document.querySelector("#checkoutDrawer").classList.toggle("opacity-45", count === 0);
+        ["checkoutDesktop", "checkoutDrawer"].forEach((id) => {
+          const button = document.querySelector(`#${id}`);
+          button.disabled = count === 0;
+          button.innerHTML = count === 0
+            ? `<i data-lucide="shopping-basket" class="h-4 w-4" aria-hidden="true"></i>Ajoutez un plat`
+            : `<i data-lucide="credit-card" class="h-4 w-4" aria-hidden="true"></i>Préparer votre commande`;
+        });
         renderCheckoutSummary();
         lucide.createIcons();
       }
